@@ -34,6 +34,16 @@ module.exports = {
                 air_force_blue: "#588896",
                 cadet_gray: "#a0aeb2",
                 cadet_blue: "#829aa1",
+                testColor: "#97A0B1",
+            },
+            keyframes: {
+                rotate: {
+                    "0%": { transform: "rotate(0deg)" },
+                    "100%": { transform: "rotate(360deg)" },
+                },
+            },
+            animation: {
+                rotate: "rotate 1s linear infinite",
             },
         },
         plugins: [],
