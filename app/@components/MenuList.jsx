@@ -20,7 +20,7 @@ const MenuList = ({ isOpen, setIsMenuOpen }) => {
             </button>
             <ul className="flex flex-col justify-center items-center h-full text-center text-5xl">
                 <Image src="/images/cloud.svg" width={100} height={100} alt="cloud" />
-                <li className="py-4 px-4 hover:text-grey-400 transition-transform">
+                <li className="py-4 px-4 hover:text-silver transition-transform">
                     <Link href="/about">About</Link>
                 </li>
                 <li className="py-4 px-4 hover:text-silver transition-transform">

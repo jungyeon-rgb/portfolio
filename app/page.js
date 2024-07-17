@@ -35,7 +35,7 @@ export default function Home() {
                     <div className="text-2xl absolute flex justify-center items-center text-white w-12 h-12 rounded-full bottom-[50px] left-1/2 transform -translate-x-1/2 cursor-pointer">
                         <button onClick={toggleMenu}>MENU</button>
                     </div>
-                    <div className="absolute bottom-18 right-10 transform -translate-x-1/2 p-6">
+                    <div className="absolute bottom-10 right-10 transform -translate-x-1/2 p-6">
                         <NameLogo />
                     </div>
                     <MenuList isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
