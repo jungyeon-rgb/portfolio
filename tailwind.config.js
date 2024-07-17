@@ -35,6 +35,8 @@ module.exports = {
                 cadet_gray: "#a0aeb2",
                 cadet_blue: "#829aa1",
                 testColor: "#97A0B1",
+                backgroundColor_blue: "#7297B2",
+                backgroundColor_pink: "#E4D0D9",
             },
             keyframes: {
                 rotate: {

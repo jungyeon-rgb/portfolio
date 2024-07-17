@@ -8,7 +8,7 @@ const MenuList = ({ isOpen, setIsMenuOpen }) => {
 
     return (
         <section
-            className={`font-stardom fixed bottom-0 left-0 w-full h-screen bg-testColor text-white transition-transform duration-[1.5s] transform ${
+            className={`font-stardom fixed bottom-0 left-0 w-full h-screen bg-backgroundColor_blue text-white transition-transform duration-[1.5s] transform ${
                 isOpen ? "translate-y-0" : "translate-y-full"
             }`}
         >
