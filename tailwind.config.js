@@ -49,6 +49,6 @@ module.exports = {
                 rotate: "rotate 1s linear infinite",
             },
         },
-        plugins: [],
+        plugins: [require("tailwind-scrollbar")],
     },
 }
