@@ -13,8 +13,13 @@ const MenuList = ({ isOpen, setIsMenuOpen }) => {
                 isOpen ? "translate-y-0" : "translate-y-full"
             }`}
         >
-            <ul className="flex flex-col justify-center items-center h-full text-center text-5xl relative z-10">
+            <ul className="flex flex-col justify-center items-center h-full text-center text-6xl relative z-10">
                 <Image src="/images/cloud.svg" width={100} height={100} alt="cloud" />
+                <li className="py-4 px-4 hover:text-silver transition-transform">
+                    <Link href="/" onClick={closeMenu}>
+                        HOME
+                    </Link>
+                </li>
                 <li className="py-4 px-4 hover:text-silver transition-transform">
                     <Link href="/about" onClick={closeMenu}>
                         ABOUT
@@ -36,7 +41,7 @@ const MenuList = ({ isOpen, setIsMenuOpen }) => {
                     </Link>
                 </li>
                 <button
-                    className="font-pretendard z-100 text-2xl absolute flex justify-center items-center bg-white text-backgroundColor_blue text-backgroundcolor_blue w-12 h-12 rounded-full bottom-[50px] left-1/2 transform -translate-x-1/2 cursor-pointer"
+                    className="font-pretendard z-100 text-2xl absolute flex justify-center items-center bg-white text-backgroundColor_pink w-12 h-12 rounded-full bottom-[50px] left-1/2 transform -translate-x-1/2 cursor-pointer"
                     onClick={closeMenu}
                 >
                     X
