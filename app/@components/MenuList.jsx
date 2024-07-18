@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 
+// TODO : font-weight 조금 더 두껍게
+
 const MenuList = ({ isOpen, setIsMenuOpen }) => {
     const closeMenu = () => {
         setIsMenuOpen(false)
@@ -8,7 +10,7 @@ const MenuList = ({ isOpen, setIsMenuOpen }) => {
 
     return (
         <section
-            className={`font-stardom fixed bottom-0 left-0 w-full bg-backgroundColor_pink bg-opacity-90 h-screen transition-transform duration-[1.5s] transform ${
+            className={`font-stardom fixed bottom-0 left-0 w-full bg-backgroundColor_pink h-screen transition-transform duration-[1.5s] transform ${
                 isOpen ? "translate-y-0" : "translate-y-full"
             }`}
         >

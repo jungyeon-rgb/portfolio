@@ -16,6 +16,7 @@ module.exports = {
             fontFamily: {
                 pretendard: ["Pretendard", "sans-serif"],
                 stardom: ["Stardom-Regular", "sans-serif"],
+                meongi_white: ["Cafe24Meongi-W-v1.0", "pretendard"],
             },
             content: {
                 link: 'url("/images/button.png")',

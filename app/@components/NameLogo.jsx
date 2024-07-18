@@ -1,5 +1,7 @@
 import Image from "next/image"
 
+// TODO : https://gsap.com/community/forums/topic/39392-animated-text-circle-with-next-js/
+
 const NameLogo = () => {
     const text = "For a moment of rest between lives stay."
 
