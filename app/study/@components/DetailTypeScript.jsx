@@ -1,53 +1,31 @@
+import Image from "next/image"
+
 const DetailTypeScript = () => {
     return (
         <div className="">
             <article>
-                <h2 className="text-2xl my-4 font-bold">이용안내</h2>
+                <h2 className="text-2xl my-4 font-bold">TypeScript Study</h2>
                 <section className="text-xl">
-                    <p className="py-4">체크인은 오후 3시 이며, 체크아웃은 다음날 오전 11시로 안내해 드립니다.</p>
-                    <p className="pb-4">
-                        숙박 정원은 최대 4인(성인 4명, 영유아 2명)까지이며, 4인 이상의 추가 인원은 영유아에 한하여
-                        가능합니다.
-                    </p>
-                    <p className="pb-4">안전을 위해 외부 입구에 CCTV가 설치되어 있습니다.</p>
-                    <p className="pb-4">예약된 인원 외의 추가 인원 출입 시 이유 불문 강제 퇴실 조치가 이루어집니다.</p>
-                    <p className="pb-4">반려동물 동반은 입실이 불가능한 점 양해 부탁드립니다.</p>
-                    <p className="pb-4">
-                        숙소 내 전 구역은 절대 금연입니다. 흡연 시 객실 정화비용으로 10만원이 청구됩니다.
-                    </p>
-                    <p className="pb-4">
-                        객실 내에서는 고기, 생선, 튀김 등 냄새가 많이 나거나 기름기가 많은 음식 조리가 불가능하며,
-                        간단한 조리에만 도움을 드릴 수 있습니다.
-                    </p>
-                    <p className="pb-4">촛불, 불꽃놀이, 부탄가스 사용은 절대 금지됩니다.</p>
-                    <p>
-                        숙소 내 시설물 파손 시, 부득이한 경우에 한하여 동일 제품의 구매비가 청구될 수 있음을 주의해
-                        주시기 바랍니다.
-                    </p>
-                    <p className="pb-4">
-                        숙소 내 실내 이동 시 여행용 캐리어는 들어서 운반 부탁드리며, 바닥에 자국이 남을 경우 지워지지
-                        않으니 유의해 주시기 바랍니다.
-                    </p>
-                    <p className="pb-4">
-                        침구 위에서 오염이 발생할 수 있는 일은 최대한 삼가주시기 바랍니다. 지워지지 않는 심한 오염 발생
-                        시 세탁비(불가 시 교체비)가 발생할 수 있습니다.
-                    </p>
-                    <p className="pb-4">
-                        자연과의 가까운 위치로 벌레나 곤충의 유입이 가능하며, 이로 인한 환불은 불가능합니다.
-                    </p>
-                    <p className="pb-4">숙소 내부로 벌레가 출입할 수 없도록 설치된 방충망을 꼭 사용해주세요.</p>
-                    <p className="pb-4">
-                        음주, 폭력 등의 부적절한 행위는 부득이한 경우 강제 퇴실 조치될 수 있음을 양해해 주시기 바랍니다.
-                    </p>
-                    <p className="pb-4">쓰레기는 반드시 일반, 음식물, 재활용품으로 분류하여 주시기 바랍니다.</p>
-                    <p className="pb-4">
-                        외출 시에는 반드시 창문과 모든 문을 잠그고, 수도와 TV, 실내 등의 전원을 꼼꼼히 확인하여 주시기
-                        바랍니다.
-                    </p>
-                    <p className="pb-4">
-                        퇴실 시에는 깨끗하게 정돈해 주시고, 잊으신 물건이 없는지 한 번 더 확인해 주시기 바랍니다. 개인
-                        부주의로 인한 분실에 대해서는 저희가 책임지지 않음을 양해해 주시기 바랍니다.
-                    </p>
+                    <div className="flex pb-4 ">
+                        <Image src={"/images/cloud.svg"} width={30} height={30} alt="cloudicon" />
+                        <div className="flex-row">
+                            <p className="pl-2">스터디 설명</p>
+                            <p>오엫 </p>
+                        </div>
+                    </div>
+                    <div className="flex pb-4 ">
+                        <Image src={"/images/cloud.svg"} width={30} height={30} alt="cloudicon" />
+                        <p className="pl-2">스터디 기간 : 4주</p>
+                    </div>
+                    <div className="flex pb-4 ">
+                        <Image src={"/images/cloud.svg"} width={30} height={30} alt="cloudicon" />
+                        <a
+                            href="https://velog.io/@meek/series/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%8A%A4%ED%84%B0%EB%94%94"
+                            className="pl-2"
+                        >
+                            스터디 자료 보러가기
+                        </a>
+                    </div>
                 </section>
             </article>
         </div>
