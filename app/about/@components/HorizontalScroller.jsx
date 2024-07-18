@@ -4,33 +4,43 @@ import { gsap } from "gsap"
 
 const HorizontalScroller = () => {
     const containerRef = useRef(null)
+    const marquee1Ref = useRef(null)
+    const marquee2Ref = useRef(null)
 
     useEffect(() => {
-        const container = containerRef.current
-        const width = container.scrollWidth
+        const width1 = marquee1Ref.current.scrollWidth
 
-        gsap.to(container, {
-            x: -width / 2,
-            duration: 10,
+        // h1 애니메이션 설정
+        gsap.to(marquee1Ref.current, {
+            x: -width1 / 2,
+            duration: 90,
             ease: "linear",
             repeat: -1,
             repeatDelay: 0,
             modifiers: {
-                x: gsap.utils.unitize((x) => parseFloat(x) % (width / 2)),
+                x: gsap.utils.unitize((x) => parseFloat(x) % (width1 / 2)),
             },
         })
     }, [])
 
-    const text1 = "이건 about 페이지이구요 어쩌구 저쩌구 기이이이이이이ㅣ이이이이이이ㅣ이이이일게"
-    const text2 = "이건 about 페이지이구요 어쩌구 저쩌구 기이이이이이이ㅣ이이이이이이ㅣ이이이일게"
+    const text1 =
+        "Stay 3.42 is a private pool villa stay located near Jukdo Beach, famous for surfing, in Yangyang, Gangwon-do. It is a place to stay for a while in the midst of busy daily life."
+    const text2 =
+        "We hope that it will be a comfortable rest between travelers' lives. “For the momentary rest between lives” We are not perfect, but We think and work hard for your better rest."
 
     return (
-        <div className="text-7xl overflow-hidden whitespace-nowrap ">
-            <div ref={containerRef} className="flex">
-                <div className="marquee">
-                    <h1>{text1}</h1>
-                    <h2>{text2}</h2>
+        <div className="text-9xl overflow-hidden whitespace-nowrap font-stardom">
+            <div ref={containerRef} className="flex flex-col">
+                <div ref={marquee1Ref} className="flex">
+                    <h1>
+                        {text1}&nbsp;{text1}&nbsp;{text1}&nbsp;{text1}
+                    </h1>
                 </div>
+                {/* <div ref={marquee2Ref} className="flex">
+                    <h2 className="marquee">
+                        {text2}&nbsp;{text2}&nbsp;{text2}&nbsp;{text2}
+                    </h2>
+                </div> */}
             </div>
         </div>
     )

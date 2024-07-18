@@ -1,10 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
 
-// TODO : font-weight 조금 더 두껍게
-
 const MenuList = ({ isOpen, setIsMenuOpen }) => {
     const closeMenu = () => {
+        console.log("Closing menu")
         setIsMenuOpen(false)
     }
 
@@ -14,26 +13,34 @@ const MenuList = ({ isOpen, setIsMenuOpen }) => {
                 isOpen ? "translate-y-0" : "translate-y-full"
             }`}
         >
-            <button
-                className="font-pretendard z-10 text-2xl absolute flex justify-center items-center bg-white text-payne_gray w-12 h-12 rounded-full bottom-[50px] left-1/2 transform -translate-x-1/2 cursor-pointer"
-                onClick={closeMenu}
-            >
-                X
-            </button>
             <ul className="flex flex-col justify-center items-center h-full text-center text-5xl relative z-10">
                 <Image src="/images/cloud.svg" width={100} height={100} alt="cloud" />
                 <li className="py-4 px-4 hover:text-silver transition-transform">
-                    <Link href="/about">ABOUT</Link>
+                    <Link href="/about" onClick={closeMenu}>
+                        ABOUT
+                    </Link>
                 </li>
                 <li className="py-4 px-4 hover:text-silver transition-transform">
-                    <Link href="/projects">PROJECTS</Link>
+                    <Link href="/projects" onClick={closeMenu}>
+                        PROJECTS
+                    </Link>
                 </li>
                 <li className="py-4 px-4 hover:text-silver transition-transform">
-                    <Link href="/study">STUDY</Link>
+                    <Link href="/study" onClick={closeMenu}>
+                        STUDY
+                    </Link>
                 </li>
                 <li className="py-4 px-4 hover:text-silver transition-transform">
-                    <Link href="/guestbook">GUEST BOOK</Link>
+                    <Link href="/guestbook" onClick={closeMenu}>
+                        GUEST BOOK
+                    </Link>
                 </li>
+                <button
+                    className="font-pretendard z-100 text-2xl absolute flex justify-center items-center bg-white text-backgroundColor_blue text-backgroundcolor_blue w-12 h-12 rounded-full bottom-[50px] left-1/2 transform -translate-x-1/2 cursor-pointer"
+                    onClick={closeMenu}
+                >
+                    X
+                </button>
             </ul>
         </section>
     )

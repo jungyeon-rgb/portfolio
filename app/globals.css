@@ -20,13 +20,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: "Cafe24Meongi-W-v1.0";
-    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Meongi-W-v1.0.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
     font-family: "Stardom-Regular", sans-serif;
     background-color: #7297b2;
@@ -37,11 +30,34 @@ body {
     animation: rotate 10s linear infinite;
 }
 
+.marquee {
+    /* position: absolute; */
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 32s linear infinite;
+    animation-duration: 32s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: marquee;
+}
+
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
     }
 }
