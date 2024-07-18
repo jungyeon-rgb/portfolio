@@ -16,6 +16,7 @@ module.exports = {
             fontFamily: {
                 pretendard: ["Pretendard", "sans-serif"],
                 stardom: ["Stardom-Regular", "sans-serif"],
+                meongi_white: ["Cafe24Meongi-W-v1.0", "pretendard"],
             },
             content: {
                 link: 'url("/images/button.png")',
@@ -34,8 +35,20 @@ module.exports = {
                 air_force_blue: "#588896",
                 cadet_gray: "#a0aeb2",
                 cadet_blue: "#829aa1",
+                testColor: "#97A0B1",
+                backgroundColor_blue: "#7297B2",
+                backgroundColor_pink: "#E4D0D9",
+            },
+            keyframes: {
+                rotate: {
+                    "0%": { transform: "rotate(0deg)" },
+                    "100%": { transform: "rotate(360deg)" },
+                },
+            },
+            animation: {
+                rotate: "rotate 1s linear infinite",
             },
         },
-        plugins: [],
+        plugins: [require("tailwind-scrollbar")],
     },
 }
