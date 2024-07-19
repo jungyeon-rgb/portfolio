@@ -19,7 +19,12 @@ export default function SwiperCustom() {
             >
                 <SwiperSlide className="swiper-slide flex-row">
                     <p className="text-6xl">푸로젝투 입니댱</p>
-                    <Image src="/images/komatzip-main.png" fill={true} />
+                    <Image
+                        src="/images/komatzip-main.png"
+                        fill={true}
+                        alt="test_image
+                    "
+                    />
                 </SwiperSlide>
                 <SwiperSlide className="swiper-slide">Slide 2</SwiperSlide>
                 <SwiperSlide className="swiper-slide">Slide 3</SwiperSlide>
