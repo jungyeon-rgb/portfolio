@@ -1,7 +1,7 @@
-import SteckList from "../about/@components/ThreeJs/main";
+import ThreeJsScene from "../about/@components/ThreeJs/ThreeJsScene";
 
 const TestPage = () => {
-  return <SteckList />;
+  return <ThreeJsScene />;
 };
 
 export default TestPage;
