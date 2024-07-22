@@ -1,6 +1,8 @@
+// components/ThreeJsScene.js
 "use client";
 import { useEffect } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { GUI } from "lil-gui";
 import * as THREE from "three";
 
 const ThreeJsScene = () => {
@@ -8,6 +10,7 @@ const ThreeJsScene = () => {
     let renderer;
 
     const init = () => {
+      const gui = new GUI(); // 수정된 부분
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(renderer.domElement);
@@ -38,9 +41,34 @@ const ThreeJsScene = () => {
         });
         scene.add(card.mesh);
 
+        const cardFolder = gui.addFolder("Card");
+
+        cardFolder
+          .add(card.mesh.material, "roughness")
+          .min(0)
+          .max(1)
+          .step(0.01)
+          .name("material.roughness");
+
+        cardFolder
+          .add(card.mesh.material, "metalness")
+          .min(0)
+          .max(1)
+          .step(0.01)
+          .name("material.metalness");
+
+        cardFolder.open(); // 폴더 열기
+
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-        ambientLight.position.set(-5, -5, -5);
         scene.add(ambientLight);
+
+        const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.6);
+        const directionalLight2 = directionalLight1.clone();
+
+        directionalLight1.position.set(1, 1, 3);
+        directionalLight2.position.set(-1, 1, -3);
+
+        scene.add(directionalLight1, directionalLight2);
 
         const render = () => {
           controls.update(); // 추가된 부분: 컨트롤 업데이트

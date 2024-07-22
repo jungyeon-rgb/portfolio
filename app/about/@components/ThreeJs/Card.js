@@ -1,6 +1,5 @@
+// components/Card.js
 import * as THREE from "three";
-
-// const card = new Card(); // 카드 값을 설정하는 곳
 
 class Card {
   constructor({ width, height, color }) {
@@ -8,6 +7,8 @@ class Card {
     const material = new THREE.MeshStandardMaterial({
       color,
       side: THREE.DoubleSide,
+      roughness: 0.5,
+      metalness: 0.5,
     });
 
     const mesh = new THREE.Mesh(geometry, material);
