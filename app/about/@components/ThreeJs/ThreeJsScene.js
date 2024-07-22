@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import * as THREE from "three";
 
 const ThreeJsScene = () => {
@@ -27,7 +28,8 @@ const ThreeJsScene = () => {
       );
       camera.position.z = 25;
 
-      // Assuming Card is a class you have defined in another file
+      const controls = new OrbitControls(camera, renderer.domElement); // 수정된 부분
+
       import("./Card").then(({ default: Card }) => {
         const card = new Card({
           width: 10,
@@ -41,6 +43,7 @@ const ThreeJsScene = () => {
         scene.add(ambientLight);
 
         const render = () => {
+          controls.update(); // 추가된 부분: 컨트롤 업데이트
           renderer.render(scene, camera);
           requestAnimationFrame(render);
         };
@@ -54,7 +57,6 @@ const ThreeJsScene = () => {
     }
 
     return () => {
-      // Clean up function to remove the renderer's canvas when the component unmounts
       if (renderer) {
         document.body.removeChild(renderer.domElement);
       }
