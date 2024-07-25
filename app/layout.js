@@ -1,7 +1,7 @@
-// pages/_app.js
-// import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "next-auth/react"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { NextAuthProvider } from "./@components/providers/session-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -14,8 +14,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={inter.className}>
-                {children}
-                {/* <SessionProvider session={session}>{children}</SessionProvider> */}
+                <NextAuthProvider>{children}</NextAuthProvider>
             </body>
         </html>
     )
