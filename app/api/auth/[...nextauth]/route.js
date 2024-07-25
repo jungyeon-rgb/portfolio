@@ -13,6 +13,7 @@ const authOptions = {
         signIn: "/auth/signin",
         error: "/auth/error",
     },
+    secret: process.env.NEXTAUTH_SECRET,
 }
 
 // NextAuth 핸들러를 정의합니다.
