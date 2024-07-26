@@ -1,10 +1,10 @@
 "use client"
 import { useState } from "react"
-import DetailNewDeal from "./@components/DetailNewDeal"
+import DetailNewDeal from "./_components/DetailNewDeal"
 import HorizontalScroller from "../about/@components/HorizontalScroller"
 import MenuButton from "../@components/MenuButton"
-import NameLogo from "../@components/NameLogo"
-import DetailTypeScript from "./@components/DetailTypeScript"
+import NameLogo from "../_components/NameLogo"
+import DetailTypeScript from "./_components/DetailTypeScript"
 
 const Study = () => {
     const [selectedTab, setSelectedTab] = useState("study1")
