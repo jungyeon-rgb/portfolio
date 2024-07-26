@@ -1,6 +1,6 @@
 import Image from "next/image"
 import HorizontalScroller from "./@components/HorizontalScroller"
-import MenuButton from "../@components/MenuButton"
+import MenuButton from "../_components/MenuButton"
 
 const About = () => {
     return (
