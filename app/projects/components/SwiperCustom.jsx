@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, forwardRef, useImperativeHandle } from "react"
 import gsap from "gsap"
 import Image from "next/image"
 
@@ -30,7 +30,7 @@ const projectList = [
     },
 ]
 
-export default function GSAPSlider() {
+const SwiperCustom = forwardRef((props, ref) => {
     const slideRef = useRef(null)
     const currentIndex = useRef(0)
 
@@ -44,45 +44,39 @@ export default function GSAPSlider() {
         })
     }
 
-    const nextSlide = () => goToSlide(currentIndex.current + 1)
-    const previousSlide = () => goToSlide(currentIndex.current - 1)
+    const nextSlide = () => {
+        goToSlide(currentIndex.current + 1)
+    }
+
+    const previousSlide = () => {
+        goToSlide(currentIndex.current - 1)
+    }
+
+    useImperativeHandle(ref, () => ({
+        nextSlide,
+        previousSlide,
+    }))
 
     useEffect(() => {
-        gsap.set(slideRef.current, { x: 0 }) // 초기 위치 설정
+        gsap.set(slideRef.current, { x: 0 })
     }, [])
 
     return (
-        <section className="relative w-full overflow-hidden">
+        <div className="relative w-screen overflow-hidden">
             <div className="flex" ref={slideRef}>
                 {projectList.map((project) => (
-                    <div key={project.id} className="flex items-center justify-between flex-shrink-0 w-full h-32">
-                        <div className="relative w-1/2 h-full">
-                            <Image
-                                src={project.imageSrc}
-                                alt={project.alt}
-                                layout="fill"
-                                objectFit="cover"
-                                className="rounded"
-                            />
+                    <div key={project.id} className="flex items-center justify-center flex-shrink-0 w-full">
+                        <div className="relative bg-blue-200 w-[500px] h-[600px]">
+                            <Image src={project.imageSrc} alt={project.alt} fill="true" objectFit="cover" />
                         </div>
-                        <div className="flex items-center justify-center w-1/2 h-full overflow-hidden bg-yellow-800 border-2">
+                        <div className="flex items-center justify-center w-[600px] h-full overflow-hidden border-2 text-slate-500 bg-white">
                             <p className="p-2 text-white">{project.description}</p>
                         </div>
                     </div>
                 ))}
             </div>
-            <button
-                onClick={previousSlide}
-                className="absolute left-0 p-2 text-white transform -translate-y-1/2 bg-gray-800 top-1/2"
-            >
-                Previous
-            </button>
-            <button
-                onClick={nextSlide}
-                className="absolute right-0 p-2 text-white transform -translate-y-1/2 bg-gray-800 top-1/2"
-            >
-                Next
-            </button>
-        </section>
+        </div>
     )
-}
+})
+
+export default SwiperCustom
