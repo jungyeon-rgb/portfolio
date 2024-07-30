@@ -10,7 +10,7 @@ const AuthButtons = ({ handleCommentSubmit }) => {
                 <>
                     <button
                         onClick={handleCommentSubmit}
-                        className="w-[150px] px-4 py-2 leading-5 text-white bg-green-500 rounded-md hover:bg-green-600"
+                        className="w-[150px] h-[40px] px-4 py-2 leading-5 text-white bg-green-500 rounded-md hover:bg-green-600"
                     >
                         Comment
                     </button>
@@ -19,9 +19,9 @@ const AuthButtons = ({ handleCommentSubmit }) => {
                 <>
                     <button
                         onClick={() => signIn("github")}
-                        className="w-[150px] px-4 py-2 leading-5 text-white bg-green-500 rounded-md hover:bg-green-600"
+                        className="w-[150px] h-[40px] px-4 py-2 leading-5 text-white bg-green-500 rounded-md hover:bg-green-600"
                     >
-                        <Image src="/images/github.svg" width={40} height={40} alt="githubicon" />
+                        <Image src="/images/github.svg" width={30} height={30} alt="githubicon" />
                         Sign in with GitHub
                     </button>
                 </>
