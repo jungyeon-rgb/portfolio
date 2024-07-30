@@ -1,10 +1,10 @@
 "use client"
 import { useState } from "react"
-import DetailNewDeal from "./_components/DetailNewDeal"
+import DetailNewDeal from "./_components/contents/DetailNewDeal"
 import HorizontalScroller from "../about/@components/HorizontalScroller"
 import MenuButton from "../_components/MenuButton"
 import NameLogo from "../_components/NameLogo"
-import DetailTypeScript from "./_components/DetailTypeScript"
+import DetailTypeScript from "./_components/contents/DetailTypeScript"
 
 const Study = () => {
     const [selectedTab, setSelectedTab] = useState("study1")
@@ -33,8 +33,8 @@ const Study = () => {
         <main className="flex-row items-center justify-center w-full font-pretendard">
             <div className="flex">
                 {/* 탭 부분 */}
-                <nav className="text-5xl">
-                    <ul className="p-4 pr-8">
+                <nav className="w-1/3 p-10 text-5xl">
+                    <ul className="pr-8">
                         <section>
                             <h1 className="mt-10 mb-4 font-black">교육 {">"}</h1>
                             {tabs.slice(0, 2).map((tab) => (
@@ -69,7 +69,7 @@ const Study = () => {
                         </section> */}
                 </nav>
                 {/* 탭 내용 */}
-                <section className="mt-4 h-[800px] overflow-y-auto before:w-[1px] before:h-[800px] before:bg-white before:absolute">
+                <section className="w-2/3 mt-4 h-[800px] overflow-y-auto before:w-[1px] before:h-[800px] before:bg-white before:absolute">
                     <div className="flex-grow my-10 ">
                         {tabs.map(
                             (tab) =>
