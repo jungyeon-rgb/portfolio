@@ -29,8 +29,8 @@ const HorizontalScroller = () => {
         "We hope that it will be a comfortable rest between travelers' lives. “For the momentary rest between lives” We are not perfect, but We think and work hard for your better rest."
 
     return (
-        <div className="text-9xl overflow-hidden whitespace-nowrap font-stardom">
-            <div ref={containerRef} className="flex flex-col">
+        <div className="overflow-hidden text-9xl whitespace-nowrap font-stardom">
+            <div ref={containerRef}>
                 <div ref={marquee1Ref} className="flex">
                     <h1>
                         {text1}&nbsp;{text1}&nbsp;{text1}&nbsp;{text1}

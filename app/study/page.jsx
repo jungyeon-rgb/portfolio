@@ -30,48 +30,47 @@ const Study = () => {
     ]
 
     return (
-        <main className="flex-row h-screen w-screen font-pretendard overflow-hidden">
-            <div className="flex ">
+        <main className="flex-row items-center justify-center w-full font-pretendard">
+            <div className="flex">
                 {/* 탭 부분 */}
-                <nav className="w-1/3 text-5xl">
-                    <ul className="p-4 pr-8 relative flex-row">
+                <nav className="text-5xl">
+                    <ul className="p-4 pr-8">
                         <section>
-                            <h1 className="text-5xl mt-10 mb-4 font-black">교육 {">"}</h1>
+                            <h1 className="mt-10 mb-4 font-black">교육 {">"}</h1>
                             {tabs.slice(0, 2).map((tab) => (
-                                <li key={tab.name} className="py-4">
+                                <li key={tab.name} className="py-2">
                                     <button
                                         className={selectedTab === tab.name ? "" : ""}
                                         onClick={() => handleTabClick(tab.name)}
                                     >
                                         {tab.name}
-                                        {selectedTab === tab.name && <span className="text-navy ml-2">*</span>}
+                                        {selectedTab === tab.name && <span className="ml-2 text-navy">*</span>}
                                     </button>
                                 </li>
                             ))}
                         </section>
                         <section>
-                            <h1 className="text-5xl mt-10 mb-4 font-black">스터디 {">"}</h1>
+                            <h1 className="mt-20 mb-4 font-black">스터디 {">"}</h1>
                             {tabs.slice(2).map((tab) => (
-                                <li key={tab.name} className="py-4">
+                                <li key={tab.name} className="py-2">
                                     <button
                                         className={selectedTab === tab.name ? "" : ""}
                                         onClick={() => handleTabClick(tab.name)}
                                     >
                                         {tab.name}
-                                        {selectedTab === tab.name && <span className="text-navy ml-2">*</span>}
+                                        {selectedTab === tab.name && <span className="ml-2 text-navy">*</span>}
                                     </button>
                                 </li>
                             ))}
-                        </section>
-                        <section>
-                            <li className="mt-40 ml-40">
-                                <NameLogo />
-                            </li>
                         </section>
                     </ul>
+                    {/* <section className="flex items-center justify-center m-28">
+                            <NameLogo />
+                        </section> */}
                 </nav>
-                <section className="w-3/4 flex flex-col before:block before:w-[1px] before:h-full before:bg-white before:absolute">
-                    <div className="ml-4 flex-grow overflow-y-auto">
+                {/* 탭 내용 */}
+                <section className="mt-4 h-[800px] overflow-y-auto before:w-[1px] before:h-[800px] before:bg-white before:absolute">
+                    <div className="flex-grow my-10 ">
                         {tabs.map(
                             (tab) =>
                                 selectedTab === tab.name && (
@@ -83,7 +82,7 @@ const Study = () => {
                     </div>
                 </section>
             </div>
-            <div className="mt-10 overflow-hidden">
+            <div className="h-fulls">
                 <HorizontalScroller />
             </div>
         </main>
