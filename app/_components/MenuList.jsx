@@ -3,7 +3,6 @@ import Link from "next/link"
 
 const MenuList = ({ isOpen, setIsMenuOpen }) => {
     const closeMenu = () => {
-        console.log("Closing menu")
         setIsMenuOpen(false)
     }
 
@@ -13,29 +12,29 @@ const MenuList = ({ isOpen, setIsMenuOpen }) => {
                 isOpen ? "translate-y-0" : "translate-y-full"
             }`}
         >
-            <ul className="flex flex-col justify-center items-center h-full text-center text-6xl relative z-10">
+            <ul className="relative z-10 flex flex-col items-center justify-center h-full text-6xl text-center">
                 <Image src="/images/cloud.svg" width={100} height={100} alt="cloud" />
-                <li className="py-4 px-4 hover:text-silver transition-transform">
+                <li className="px-4 py-4 transition-transform hover:text-silver">
                     <Link href="/" onClick={closeMenu}>
                         HOME
                     </Link>
                 </li>
-                <li className="py-4 px-4 hover:text-silver transition-transform">
+                <li className="px-4 py-4 transition-transform hover:text-silver">
                     <Link href="/about" onClick={closeMenu}>
                         ABOUT
                     </Link>
                 </li>
-                <li className="py-4 px-4 hover:text-silver transition-transform">
+                <li className="px-4 py-4 transition-transform hover:text-silver">
                     <Link href="/projects" onClick={closeMenu}>
                         PROJECTS
                     </Link>
                 </li>
-                <li className="py-4 px-4 hover:text-silver transition-transform">
+                <li className="px-4 py-4 transition-transform hover:text-silver">
                     <Link href="/study" onClick={closeMenu}>
                         STUDY
                     </Link>
                 </li>
-                <li className="py-4 px-4 hover:text-silver transition-transform">
+                <li className="px-4 py-4 transition-transform hover:text-silver">
                     <Link href="/guestbook" onClick={closeMenu}>
                         GUEST BOOK
                     </Link>

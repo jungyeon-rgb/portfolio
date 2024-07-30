@@ -17,7 +17,7 @@ const CommentList = ({ commentsList }) => {
                                 className="w-10 h-10 mr-2 rounded-xl"
                             />
                             <div className="w-full">
-                                <div className="flex px-4 py-2 border border-b border-gray-200 rounded-t-md bg-[#e1e4e8]">
+                                <div className="flex items-center px-4 py-2 border border-b border-gray-200 rounded-t-md bg-[#e1e4e8]">
                                     <p className="mr-2 font-bold">{cmt.user.name}</p>
                                     <span className="text-sm text-gray-500">
                                         {formatDistanceToNow(new Date(cmt.created_at), { addSuffix: true })}

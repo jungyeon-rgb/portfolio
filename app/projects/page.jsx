@@ -1,10 +1,16 @@
-"use client" // 클라이언트 컴포넌트로 설정
-
-import { useRef } from "react"
+"use client"
+import { useState, useRef } from "react"
 import SwiperCustom from "./components/SwiperCustom"
+import MenuList from "../_components/MenuList"
+import MenuButton from "../_components/MenuButton"
 
 const Projects = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
     const swiperRef = useRef()
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
 
     const nextSlide = () => {
         if (swiperRef.current) {
@@ -19,20 +25,34 @@ const Projects = () => {
     }
 
     return (
-        <section className="flex flex-col items-center justify-center text-center bg-backgroundColor_pink">
-            <p className="my-10 font-black bg-blue-200 rounded-full text-8xl text-slate-500 font-stardom">projects </p>
-            <div className="m-10">
-                <SwiperCustom ref={swiperRef} onNext={nextSlide} onPrevious={previousSlide} />
-            </div>
-            <div className="absolute flex flex-row space-y-2 bottom-5 right-5">
-                <button onClick={previousSlide} className="mx-2 text-black bg-[#E4D0D9] rounded-full">
-                    Previous
-                </button>
-                <button onClick={nextSlide} className="mx-2 text-black bg-[#E4D0D9] rounded-full">
-                    Next
-                </button>
-            </div>
-        </section>
+        <main className="flex flex-col items-center justify-center w-screen h-full font-medium font-pretendard">
+            <video
+                className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+                src="/video/background5.mp4"
+                loop
+                autoPlay
+                muted
+                aria-hidden="true"
+            />
+            <h1 className="pt-4 pb-6 text-white text-9xl font-stardom">Projects</h1>
+            <MenuButton onClick={toggleMenu} />
+            <section className="w-2/3 p-4 mx-auto border-2 border-white border-solid rounded-lg shadow-lg font-pretendard">
+                <div className="flex-row m-4">
+                    <div className="flex items-center justify-center">
+                        <SwiperCustom ref={swiperRef} onNext={nextSlide} onPrevious={previousSlide} />
+                    </div>
+                    <div className="flex justify-end mt-4">
+                        <button onClick={previousSlide} className="mx-2 text-white ">
+                            이전
+                        </button>
+                        <button onClick={nextSlide} className="mx-2 text-white ">
+                            다음
+                        </button>
+                    </div>
+                </div>
+                <MenuList isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+            </section>
+        </main>
     )
 }
 

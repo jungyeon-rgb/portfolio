@@ -1,13 +1,21 @@
 "use client"
 import { useState } from "react"
-import DetailNewDeal from "./_components/DetailNewDeal"
+import DetailNewDeal from "./_components/contents/DetailNewDeal"
 import HorizontalScroller from "../about/@components/HorizontalScroller"
 import MenuButton from "../_components/MenuButton"
 import NameLogo from "../_components/NameLogo"
-import DetailTypeScript from "./_components/DetailTypeScript"
+import DetailTypeScript from "./_components/contents/DetailTypeScript"
+import DetailElice from "./_components/contents/DetailElice"
+import StudyEtc from "./_components/contents/StudyEtc"
+import MenuList from "../_components/MenuList"
 
 const Study = () => {
     const [selectedTab, setSelectedTab] = useState("study1")
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
 
     const handleTabClick = (tabName) => {
         setSelectedTab(tabName)
@@ -16,76 +24,74 @@ const Study = () => {
     // 탭 데이터 정의
     const tabs = [
         { name: "서울시 뉴딜", component: <DetailNewDeal /> },
-        { name: "엘리스", content: <h3>등록된 코스가 없습니다.</h3> },
+        { name: "엘리스", content: <DetailElice /> },
         { name: "타입스크립트 스터디", component: <DetailTypeScript /> },
         {
             name: "스터디2",
-            content: (
-                <>
-                    <h3>스터디2 상세정보</h3>
-                    <p>스터디2에 대한 상세 내용을 여기에 추가할 수 있습니다.</p>
-                </>
-            ),
+            component: <StudyEtc />,
         },
     ]
 
     return (
-        <main className="flex-row h-screen w-screen font-pretendard overflow-hidden">
-            <div className="flex ">
+        <main className="flex-row items-center justify-center w-full font-pretendard">
+            <div className="flex">
                 {/* 탭 부분 */}
-                <nav className="w-1/3 text-5xl">
-                    <ul className="p-4 pr-8 relative flex-row">
+                <nav className="w-1/3 p-10 text-5xl">
+                    <ul className="pr-8">
                         <section>
-                            <h1 className="text-5xl mt-10 mb-4 font-black">교육 {">"}</h1>
+                            <h1 className="mt-10 mb-4 font-black ">교육 {">"}</h1>
                             {tabs.slice(0, 2).map((tab) => (
-                                <li key={tab.name} className="py-4">
+                                <li key={tab.name} className="py-2">
                                     <button
                                         className={selectedTab === tab.name ? "" : ""}
                                         onClick={() => handleTabClick(tab.name)}
                                     >
                                         {tab.name}
-                                        {selectedTab === tab.name && <span className="text-navy ml-2">*</span>}
+                                        {selectedTab === tab.name && <span className="ml-2 text-navy">*</span>}
                                     </button>
                                 </li>
                             ))}
                         </section>
                         <section>
-                            <h1 className="text-5xl mt-10 mb-4 font-black">스터디 {">"}</h1>
+                            <h1 className="mt-20 mb-4 font-black">스터디 {">"}</h1>
                             {tabs.slice(2).map((tab) => (
-                                <li key={tab.name} className="py-4">
+                                <li key={tab.name} className="py-2">
                                     <button
                                         className={selectedTab === tab.name ? "" : ""}
                                         onClick={() => handleTabClick(tab.name)}
                                     >
                                         {tab.name}
-                                        {selectedTab === tab.name && <span className="text-navy ml-2">*</span>}
+                                        {selectedTab === tab.name && <span className="ml-2 text-navy">*</span>}
                                     </button>
                                 </li>
                             ))}
-                        </section>
-                        <section>
-                            <li className="mt-40 ml-40">
-                                <NameLogo />
-                            </li>
                         </section>
                     </ul>
+                    {/* <section className="flex items-center justify-center m-28">
+                            <NameLogo />
+                        </section> */}
                 </nav>
-                <section className="w-3/4 flex flex-col before:block before:w-[1px] before:h-full before:bg-white before:absolute">
-                    <div className="ml-4 flex-grow overflow-y-auto">
+                {/* 탭 내용 */}
+                <section className="text-xl w-2/3 mt-4 h-[750px] overflow-y-auto before:w-[1px] before:h-[750px] before:bg-white before:absolute">
+                    <div className="flex-grow my-10 ">
                         {tabs.map(
                             (tab) =>
                                 selectedTab === tab.name && (
                                     <article key={tab.name} className="mx-10">
-                                        {tab.component || tab.content}
+                                        {tab.component}
                                     </article>
                                 ),
                         )}
                     </div>
                 </section>
             </div>
-            <div className="mt-10 overflow-hidden">
+
+            <div className="flex-row h-full">
                 <HorizontalScroller />
+                <p className="mx-10">© jungyeon all rights reserved.</p>
             </div>
+            <MenuButton onClick={toggleMenu} />
+            <MenuList isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         </main>
     )
 }

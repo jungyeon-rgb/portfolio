@@ -5,12 +5,19 @@ import { useState } from "react"
 import Image from "next/image"
 import { marked } from "marked"
 import CommentList from "./components/CommentList"
+import MenuList from "../_components/MenuList"
+import MenuButton from "../_components/MenuButton"
 
 const GuestBook = () => {
     const { data: session } = useSession()
     const [comment, setComment] = useState("")
     const [commentsList, setCommentsList] = useState([])
     const [activeTab, setActiveTab] = useState("write")
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
 
     const handleCommentChange = (e) => setComment(e.target.value)
 
@@ -26,7 +33,7 @@ const GuestBook = () => {
                         image: "/path/to/default/image.png",
                         name: "Anonymous",
                     },
-                    created_at: new Date().toISOString(), // Use ISO string for better date handling
+                    created_at: new Date().toISOString(),
                 },
             ])
             setComment("")
@@ -35,7 +42,7 @@ const GuestBook = () => {
     }
 
     return (
-        <section className="flex flex-col items-center justify-center w-screen h-full text-black">
+        <section className="flex flex-col items-center justify-center w-screen h-full font-medium font-pretendard">
             <video
                 className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
                 src="/video/background1.mp4"
@@ -46,7 +53,9 @@ const GuestBook = () => {
             <h1 className="my-4 text-white text-9xl font-stardom">GUEST BOOK</h1>
 
             <div className="w-3/4 max-w-2xl p-4 mx-auto rounded-lg shadow-lg">
-                <div className="flex mt-6 mb-4">
+                <MenuButton onClick={toggleMenu} />
+
+                <div className="flex mt-6 mb-4 ">
                     <div className="flex justify-center">
                         {session && (
                             <Image
@@ -58,7 +67,7 @@ const GuestBook = () => {
                             />
                         )}
                     </div>
-                    <div className="flex-row items-center justify-center w-full ml-4">
+                    <div className="flex-row items-center justify-center w-full ml-4 text-black">
                         <div className="flex pt-2 px-2 bg-[#e1e4e8] rounded-t-md">
                             <button
                                 className={`px-4 py-2 rounded-t-md border-t-2 ${
@@ -105,10 +114,11 @@ const GuestBook = () => {
                         )}
                     </div>
                 </div>
-                <div className="max-h-[400px] overflow-y-auto">
+                <div className="max-h-[350px] overflow-y-auto text-black">
                     <CommentList commentsList={commentsList} />
                 </div>
             </div>
+            <MenuList isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         </section>
     )
 }
