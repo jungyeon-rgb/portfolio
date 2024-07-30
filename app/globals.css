@@ -99,3 +99,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     /* background: white; */
 }
+
+/* 프로젝트 역할 줄띄움 기능 */
+.preformatted-text {
+    white-space: pre-line;
+}

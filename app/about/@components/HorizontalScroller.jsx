@@ -13,7 +13,7 @@ const HorizontalScroller = () => {
         // h1 애니메이션 설정
         gsap.to(marquee1Ref.current, {
             x: -width1 / 2,
-            duration: 90,
+            duration: 130,
             ease: "linear",
             repeat: -1,
             repeatDelay: 0,

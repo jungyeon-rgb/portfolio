@@ -5,9 +5,17 @@ import HorizontalScroller from "../about/@components/HorizontalScroller"
 import MenuButton from "../_components/MenuButton"
 import NameLogo from "../_components/NameLogo"
 import DetailTypeScript from "./_components/contents/DetailTypeScript"
+import DetailElice from "./_components/contents/DetailElice"
+import StudyEtc from "./_components/contents/StudyEtc"
+import MenuList from "../_components/MenuList"
 
 const Study = () => {
     const [selectedTab, setSelectedTab] = useState("study1")
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
 
     const handleTabClick = (tabName) => {
         setSelectedTab(tabName)
@@ -16,16 +24,11 @@ const Study = () => {
     // 탭 데이터 정의
     const tabs = [
         { name: "서울시 뉴딜", component: <DetailNewDeal /> },
-        { name: "엘리스", content: <h3>등록된 코스가 없습니다.</h3> },
+        { name: "엘리스", content: <DetailElice /> },
         { name: "타입스크립트 스터디", component: <DetailTypeScript /> },
         {
             name: "스터디2",
-            content: (
-                <>
-                    <h3>스터디2 상세정보</h3>
-                    <p>스터디2에 대한 상세 내용을 여기에 추가할 수 있습니다.</p>
-                </>
-            ),
+            component: <StudyEtc />,
         },
     ]
 
@@ -36,7 +39,7 @@ const Study = () => {
                 <nav className="w-1/3 p-10 text-5xl">
                     <ul className="pr-8">
                         <section>
-                            <h1 className="mt-10 mb-4 font-black">교육 {">"}</h1>
+                            <h1 className="mt-10 mb-4 font-black ">교육 {">"}</h1>
                             {tabs.slice(0, 2).map((tab) => (
                                 <li key={tab.name} className="py-2">
                                     <button
@@ -69,22 +72,26 @@ const Study = () => {
                         </section> */}
                 </nav>
                 {/* 탭 내용 */}
-                <section className="w-2/3 mt-4 h-[800px] overflow-y-auto before:w-[1px] before:h-[800px] before:bg-white before:absolute">
+                <section className="text-xl w-2/3 mt-4 h-[750px] overflow-y-auto before:w-[1px] before:h-[750px] before:bg-white before:absolute">
                     <div className="flex-grow my-10 ">
                         {tabs.map(
                             (tab) =>
                                 selectedTab === tab.name && (
                                     <article key={tab.name} className="mx-10">
-                                        {tab.component || tab.content}
+                                        {tab.component}
                                     </article>
                                 ),
                         )}
                     </div>
                 </section>
             </div>
-            <div className="h-fulls">
+
+            <div className="flex-row h-full">
                 <HorizontalScroller />
+                <p className="mx-10">© jungyeon all rights reserved.</p>
             </div>
+            <MenuButton onClick={toggleMenu} />
+            <MenuList isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         </main>
     )
 }

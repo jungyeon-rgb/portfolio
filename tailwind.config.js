@@ -29,7 +29,7 @@ module.exports = {
                 navy2: "#59A5D8",
                 navy3: "#84D2F6",
                 navy4: "#91E5F6",
-                navy4: "#62BBC1",
+                navy5: "#62BBC1",
                 silver: "#B7BDBE",
                 payne_gray: "#4F7A87",
                 air_force_blue: "#588896",
@@ -38,6 +38,7 @@ module.exports = {
                 testColor: "#97A0B1",
                 backgroundColor_blue: "#7297B2",
                 backgroundColor_pink: "#E4D0D9",
+                dark_pink: "#C5A1C3",
             },
             keyframes: {
                 rotate: {
