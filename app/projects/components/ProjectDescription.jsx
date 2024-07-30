@@ -1,188 +1,8 @@
 import React, { useState } from "react"
-import styled from "styled-components"
 import NOT from "../../../assets/img/notfoundpage.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFigma, faGithub } from "@fortawesome/free-brands-svg-icons"
 import Modal from "../../Modal/Modal"
-
-const Container = styled.div`
-    width: 100%;
-    min-width: 100vw;
-    height: 600px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    padding: 0 50px;
-    background: rgba(0, 0, 0, 0.5);
-    @media (max-width: 600px) {
-        flex-direction: column;
-        justify-content: start;
-        gap: 10px;
-        padding: 0 20px;
-        height: 600px;
-    }
-`
-
-const ImgWrap = styled.div`
-    width: 100%;
-    min-width: 500px;
-    max-width: 800px;
-    height: 580px;
-    background-image: ${({ $imageUrl }) => `url(${$imageUrl}) `};
-    background-position: top;
-    background-size: contain;
-    background-repeat: no-repeat;
-    /* border-radius: 30px; */
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: all 1.5s;
-    &:hover {
-        /* background-position: bottom; */
-    }
-    @media (max-width: 1270px) {
-        min-width: 300px;
-        max-width: 500px;
-    }
-    @media (max-width: 600px) {
-        min-width: 300px;
-        max-width: 500px;
-        height: 300px;
-    }
-`
-
-const Contents = styled.div`
-    width: 100%;
-    min-width: 700px;
-    max-width: 800px;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    gap: 100px;
-    padding: 30px;
-    @media (max-width: 1270px) {
-        min-width: 300px;
-        max-width: 500px;
-    }
-    @media (max-width: 600px) {
-        min-width: 300px;
-        max-width: 500px;
-        height: 220px;
-        justify-content: space-around;
-        gap: 15px;
-        padding: 0px;
-    }
-`
-
-const MainContents = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 50px;
-    h3 {
-        font-size: 32px;
-        @media (max-width: 600px) {
-            font-size: 24px;
-        }
-    }
-`
-
-const ToolWrap = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    gap: 20px;
-`
-
-const Tool = styled.ul`
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 10px;
-    h3 {
-        width: 85px;
-        font-size: 24px;
-    }
-`
-
-const IndexList = styled.li`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    padding: 0 3px;
-    font-size: 10px;
-    font-size: 18px;
-    font-family: "G L";
-`
-
-const MainText = styled.p`
-    font-family: "G L";
-    font-size: 18px;
-    line-height: 28px;
-    word-break: keep-all;
-`
-
-const MoreInfo = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-`
-
-const MoreBtn = styled.button`
-    width: 120px;
-    height: 50px;
-    background: #000;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 50px;
-    padding: 10px 30px;
-    font-family: "G M";
-    font-size: 18px;
-    transition: all 0.2s;
-    cursor: pointer;
-    &:hover {
-        border: 1px solid #bbf744;
-        background: #bbf744;
-        color: #000;
-    }
-    @media (max-width: 600px) {
-        width: 90px;
-        height: 50px;
-        font-size: 16px;
-        padding: 10px;
-    }
-`
-
-const Icons = styled.ul`
-    display: flex;
-    gap: 10px;
-`
-
-const Icon = styled.li`
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    .icon {
-        width: 30px;
-        height: 30px;
-        padding: 10px;
-        border: 1px solid #fff;
-        border-radius: 100%;
-        color: #fff;
-        transition: all 0.2s;
-        &:hover {
-            border: 1px solid #bbf744;
-            background: #bbf744;
-            color: #000;
-        }
-    }
-`
 
 const ProjectCard = ({ item }) => {
     const [modalOpen, setModalOpen] = useState(false)
@@ -211,74 +31,83 @@ const ProjectCard = ({ item }) => {
     }
 
     return (
-        <Container>
-            {/* {window.innerWidth < 600 ? (
-                <>
-                    <ImgWrap onClick={goToSite} $imageUrl={imageUrl} />
-                    <Contents>
-                        <MainContents>
-                            <h3>{item?.projectNM}</h3>
-                        </MainContents>
-                        <MoreInfo>
-                            <MoreBtn onClick={handleModal}>MORE</MoreBtn>
-                            <Icons>
-                                {item?.figma ? (
-                                    <Icon onClick={goToFigma}>
-                                        <FontAwesomeIcon icon={faFigma} className="icon" />
-                                    </Icon>
-                                ) : null}
-                                <Icon onClick={goToGithub}>
-                                    <FontAwesomeIcon icon={faGithub} className="icon" />
-                                </Icon>
-                            </Icons>
-                        </MoreInfo>
-                    </Contents>
-                </>
-            ) :  */}
-            (
-            <>
-                <Contents>
-                    <MainContents>
-                        <h3>{item?.projectNM}</h3>
-                        <ToolWrap>
-                            <Tool>
-                                <h3>PAGE</h3>
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 p-8 bg-black bg-opacity-50 w-full min-w-full h-[600px]">
+            {/* Image Section */}
+            <div
+                className="flex-shrink-0 transition-transform duration-150 ease-in-out shadow-md cursor-pointer"
+                style={{
+                    backgroundImage: `url(${imageUrl})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "top",
+                }}
+                onClick={goToSite}
+            >
+                <div className="w-full h-[580px] bg-cover bg-center" />
+            </div>
+
+            {/* Content Section */}
+            <div className="flex flex-col w-full lg:w-[700px] max-w-[800px] h-full p-6 bg-gray-100 rounded-lg shadow-lg">
+                <div className="flex flex-col gap-10 mb-4">
+                    <h3 className="text-4xl font-bold">{item?.projectNM}</h3>
+                    <div className="space-y-6">
+                        <div>
+                            <h3 className="text-xl font-semibold">PAGE</h3>
+                            <ul className="list-disc list-inside">
                                 {item.page.map((page, index) => (
-                                    <IndexList key={index}>{page}</IndexList>
+                                    <li key={index} className="text-lg">
+                                        {page}
+                                    </li>
                                 ))}
-                            </Tool>
-                            <Tool>
-                                <h3>TOOL</h3>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-semibold">TOOL</h3>
+                            <ul className="list-disc list-inside">
                                 {item.skill.map((tool, index) => (
-                                    <IndexList key={index}>{tool}</IndexList>
+                                    <li key={index} className="text-lg">
+                                        {tool}
+                                    </li>
                                 ))}
-                            </Tool>
-                            <Tool>
-                                <h3>참여도</h3>
-                                <IndexList>{item?.part}</IndexList>
-                            </Tool>
-                        </ToolWrap>
-                        <MainText>{item?.text}</MainText>
-                    </MainContents>
-                    <MoreInfo>
-                        <MoreBtn onClick={handleModal}>MORE</MoreBtn>
-                        <Icons>
-                            {item?.figma ? (
-                                <Icon onClick={goToFigma}>
-                                    <FontAwesomeIcon icon={faFigma} className="icon" />
-                                </Icon>
-                            ) : null}
-                            <Icon onClick={goToGithub}>
-                                <FontAwesomeIcon icon={faGithub} className="icon" />
-                            </Icon>
-                        </Icons>
-                    </MoreInfo>
-                </Contents>
-                <ImgWrap onClick={goToSite} $imageUrl={imageUrl} />
-            </>
-            )}
-            {modalOpen ? <Modal setModalOpen={setModalOpen} item={item} imageUrl={imageUrl} /> : null}
-        </Container>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-semibold">참여도</h3>
+                            <p className="text-lg">{item?.part}</p>
+                        </div>
+                    </div>
+                    <p className="text-lg leading-relaxed">{item?.text}</p>
+                </div>
+
+                {/* More Info Section */}
+                <div className="flex items-center justify-between mt-auto">
+                    <button
+                        onClick={handleModal}
+                        className="h-12 text-white transition-colors duration-200 bg-black border border-white rounded-full w-28 hover:border-yellow-400 hover:bg-yellow-400 hover:text-black"
+                    >
+                        MORE
+                    </button>
+                    <div className="flex gap-3">
+                        {item?.figma && (
+                            <div
+                                onClick={goToFigma}
+                                className="flex items-center justify-center w-8 h-8 text-white transition-colors duration-200 border border-white rounded-full cursor-pointer hover:border-yellow-400 hover:bg-yellow-400 hover:text-black"
+                            >
+                                <FontAwesomeIcon icon={faFigma} className="text-xl" />
+                            </div>
+                        )}
+                        <div
+                            onClick={goToGithub}
+                            className="flex items-center justify-center w-8 h-8 text-white transition-colors duration-200 border border-white rounded-full cursor-pointer hover:border-yellow-400 hover:bg-yellow-400 hover:text-black"
+                        >
+                            <FontAwesomeIcon icon={faGithub} className="text-xl" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {modalOpen && <Modal setModalOpen={setModalOpen} item={item} imageUrl={imageUrl} />}
+        </div>
     )
 }
 

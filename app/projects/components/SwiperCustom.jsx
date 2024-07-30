@@ -79,4 +79,6 @@ const SwiperCustom = forwardRef((props, ref) => {
     )
 })
 
+SwiperCustom.displayName = "SwiperCustom"
+
 export default SwiperCustom
