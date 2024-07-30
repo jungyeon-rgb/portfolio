@@ -1,27 +1,27 @@
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react"
+import Image from "next/image"
 
-const AuthButtons = () => {
+const AuthButtons = ({ handleCommentSubmit }) => {
     const { data: session } = useSession()
 
     return (
         <div className="mb-4">
             {session ? (
                 <>
-                    <p>Logged in as {session.user.email}</p>
                     <button
-                        onClick={() => signOut()}
-                        className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                        onClick={handleCommentSubmit}
+                        className="w-[150px] h-[40px] px-4 py-2 leading-5 text-white bg-green-500 rounded-md hover:bg-green-600"
                     >
-                        Sign out
+                        Comment
                     </button>
                 </>
             ) : (
                 <>
-                    <p>You are not logged in</p>
                     <button
                         onClick={() => signIn("github")}
-                        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                        className="w-[150px] h-[40px] px-4 py-2 leading-5 text-white bg-green-500 rounded-md hover:bg-green-600"
                     >
+                        <Image src="/images/github.svg" width={30} height={30} alt="githubicon" />
                         Sign in with GitHub
                     </button>
                 </>
