@@ -1,0 +1,21 @@
+package jungyeon.portfolio.domain.comment.dto.response;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@Builder
+@ToString
+public class CommentInfo {
+
+	@Schema(description = "이메일")
+	private String email;
+
+	@Schema(description = "이름")
+	private String name;
+
+	@Schema(description = "방명록 내용")
+	private String comment;
+}
