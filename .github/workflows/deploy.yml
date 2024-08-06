@@ -60,7 +60,9 @@ jobs:
 
       # gradle build
       - name: Build with Gradle
-        run: ./gradlew clean build -x test
+        run: |
+          cd ./back/portfolio
+          ./gradlew clean build -x test
 
         # docker login
       - name: Docker Hub Login
@@ -73,6 +75,7 @@ jobs:
       - name: Docker build & push to prod
         if: contains(github.ref, 'feat/comment')
         run: |
+          cd ./back/portfolio
           docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }}/jyproject .
           docker push ${{ secrets.DOCKER_REPO }}/jyproject
 
