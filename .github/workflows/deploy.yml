@@ -90,8 +90,9 @@ jobs:
         if: contains(github.ref, 'feat/comment')
         with:
           host: ${{ secrets.HOST_PROD }} # EC2 퍼블릭 IPv4 DNS
-          username: ubuntu
           key: ${{ secrets.PRIVATE_KEY }}
+          username: ubuntu
+#          port: ${{ secrets.PORT }}
           envs: GITHUB_SHA
           script: |
             cd /home/ubuntu/compose
