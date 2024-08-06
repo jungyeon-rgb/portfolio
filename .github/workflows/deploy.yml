@@ -82,22 +82,19 @@ jobs:
       ## deploy to production
       - name: Deploy to prod
         uses: appleboy/ssh-action@master
-#        env:
-#          DB_URL: ${{ secrets.DB_URL }}
-#          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-#          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         id: deploy-prod
         if: contains(github.ref, 'feat/comment')
         with:
           host: ${{ secrets.HOST_PROD }} # EC2 퍼블릭 IPv4 DNS
           key: ${{ secrets.PRIVATE_KEY }}
           username: ubuntu
-#          port: ${{ secrets.PORT }}
-          envs: GITHUB_SHA
           script: |
             cd /home/ubuntu/compose
             sudo docker ps
-            sudo docker rm -f $(docker ps -qa)
+            CONTAINERS=$(docker ps -qa)
+            if [ -n "$CONTAINERS" ]; then
+              sudo docker rm -f $CONTAINERS
+            fi
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
             sudo docker-compose up -d
             sudo docker image prune -f
