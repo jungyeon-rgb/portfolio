@@ -48,8 +48,8 @@ jobs:
         if: contains(github.ref, 'feat/comment')
         run: |
           cd ./back/portfolio/src/main/resources
-          touch ./application.yml
-          echo "${{ secrets.YML }}" > ./application.yml
+          touch ./application-prod.yml
+          echo "${{ secrets.YML }}" > ./application-prod.yml
         shell: bash
 
       # gradle chmod
