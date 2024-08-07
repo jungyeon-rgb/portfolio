@@ -1,6 +1,6 @@
 "use client"
 import { useState, useRef } from "react"
-import SwiperCustom from "./components/SwiperCustom"
+import SwiperCustom from "../_components/Projects/SwiperCustom"
 import MenuList from "../_components/MenuList"
 import MenuButton from "../_components/MenuButton"
 

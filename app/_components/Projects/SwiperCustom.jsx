@@ -25,7 +25,7 @@ const projectList = [
         imageSrc: "/images/projects/portfolio/portfolio-main.png",
         title: "포트폴리오",
         description: "포트폴리오 프로젝트 입니데이데이",
-        period: "2024.07",
+        period: "2024.07.17~",
         teamMembers: "1명 (개인프로젝트)",
         technologies: "Next.js, Tailwind CSS, Next-Auth, Three.js, GSAP",
         role: "1. Next.Auth - GitHub 로그인 및 댓글 기능 구현, aws를 활용해 서버 운영. <br /> 2. GSAP을 활용한 캐러셀과 (어쩌구) 구현 <br /> 3. Three.js를 활용한 카드 컴포넌트 구현",

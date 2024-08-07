@@ -1,12 +1,12 @@
 "use client"
 import { useState } from "react"
-import DetailNewDeal from "./_components/contents/DetailNewDeal"
+import DetailNewDeal from "../_components/Study/contents/DetailNewDeal"
 import HorizontalScroller from "../about/@components/HorizontalScroller"
 import MenuButton from "../_components/MenuButton"
 import NameLogo from "../_components/NameLogo"
-import DetailTypeScript from "./_components/contents/DetailTypeScript"
-import DetailElice from "./_components/contents/DetailElice"
-import StudyEtc from "./_components/contents/StudyEtc"
+import DetailTypeScript from "../_components/Study/contents/DetailTypeScript"
+import DetailElice from "../_components/Study/contents/DetailElice"
+import StudyEtc from "../_components/Study/contents/StudyEtc"
 import MenuList from "../_components/MenuList"
 
 const Study = () => {
