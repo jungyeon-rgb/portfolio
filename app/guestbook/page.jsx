@@ -7,12 +7,14 @@ import MenuButton from "../_components/MenuButton"
 import MenuList from "../_components/MenuList"
 import CommentList from "../_components/GuestBook/CommentList"
 import Image from "next/image"
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import '@uiw/react-md-editor/markdown-editor.css';
 import '@uiw/react-markdown-preview/markdown.css';
 
 // 동적 로딩으로 SSR 문제 방지
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false })
-const MarkdownPreview = dynamic(() => import('@uiw/react-markdown-preview'), { ssr: false })
+const MDPreview = dynamic(() => import('@uiw/react-markdown-preview'), { ssr: false })
 
 const GuestBook = () => {
     const { data: session } = useSession()
@@ -39,7 +41,7 @@ const GuestBook = () => {
         setIsMenuOpen(!isMenuOpen)
     }
 
-    const handleCommentChange = (value) => setComment(value)
+    const handleCommentChange = (e) => setComment(e.target.value)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -96,10 +98,10 @@ const GuestBook = () => {
                         )}
                     </div>
                     <div className="w-full">
-                        <div className="flex justify-start pt-2 px-2 bg-[#e1e4e8] rounded-t-md">
+                        <div className="flex justify-start pt-2 px-2 bg-[#e1e4e8] rounded-t-md text-black">
                             <button
                                 className={`px-4 py-2 rounded-t-md border-t-2 ${
-                                    activeTab === "write" ? "bg-white text-black" : "bg-[#e1e4e8] text-black"
+                                    activeTab === "write" ? "bg-white " : "bg-[#e1e4e8]"
                                 }`}
                                 onClick={() => setActiveTab("write")}
                             >
@@ -107,7 +109,7 @@ const GuestBook = () => {
                             </button>
                             <button
                                 className={`px-4 py-2 rounded-t-md border-t-2 ${
-                                    activeTab === "preview" ? "bg-white text-black" : "bg-[#e1e4e8] text-black"
+                                    activeTab === "preview" ? "bg-white text-gray-400" : "bg-gray-200"
                                 }`}
                                 onClick={() => setActiveTab("preview")}
                             >
@@ -116,20 +118,20 @@ const GuestBook = () => {
                         </div>
                         <div className="w-full p-3 bg-white rounded-b-md focus:outline-none focus:ring-2 focus:ring-blue-400">
                             {activeTab === "write" && (
-                                <MDEditor
+                                <textarea
                                     value={comment}
                                     onChange={handleCommentChange}
-                                    className="h-32"
-                                    readOnly={!session}
+                                    className="text-black w-full h-32 p-3 resize-none focus:rounded-md focus:outline-none focus:ring-2 rounded-b-md focus:ring-blue-400"
                                 />
                             )}
                             {activeTab === "preview" && (
-                                <MarkdownPreview source={comment} className="h-48" />
+                                <div className="markdown-preview">
+                                    <MDPreview source={comment} className="prose h-36 font-pretendard p-3" />
+                                </div>
                             )}
                         </div>
                         {session ? (
-                            <form onSubmit={handleSubmit} className="flex items-center justify-between my-4 mx-4 text-center">
-                                <p>Styling with Markdown is supported</p>
+                            <form onSubmit={handleSubmit} className="flex items-center justify-between my-4">
                                 <span className="text-sm text-gray-500">Styling with Markdown is supported</span>
                                 <button
                                     type="submit"
@@ -139,8 +141,8 @@ const GuestBook = () => {
                                 </button>
                             </form>
                         ) : (
-                            <div className="flex justify-between mx-4 items-center text-center my-4">
-                                <p>Styling with Markdown is supported</p>
+                            <div className="flex justify-between items-center text-center m-4">
+                                <span className="text-sm text-gray-600 text-center">Styling with Markdown is supported</span>
                                 <button
                                     onClick={() => signIn("github")}
                                     className="leading-5 rounded-md hover:bg-green-600 text-white bg-green-500 flex items-center justify-center w-[200px] h-[40px] px-4 py-2"
