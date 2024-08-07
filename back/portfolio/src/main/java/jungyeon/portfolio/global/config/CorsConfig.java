@@ -13,8 +13,9 @@ public class CorsConfig {
 	public CorsFilter corsWebFilter() {
 
 		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowCredentials(false);
-		config.addAllowedOrigin("*");
+		config.setAllowCredentials(true);
+		config.addAllowedOriginPattern("*");
+		// config.addAllowedOrigin("*");
 		config.addAllowedHeader("*");
 		config.addAllowedMethod("*");
 
