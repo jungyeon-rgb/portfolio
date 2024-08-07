@@ -1,3 +1,4 @@
+"use client"
 import { marked } from "marked"
 import Image from "next/image"
 import { formatDistanceToNow } from "date-fns"
@@ -25,7 +26,7 @@ const CommentList = ({ commentsList }) => {
                                 </div>
                                 <div
                                     className="px-4 py-4 bg-white rounded-b-xl"
-                                    dangerouslySetInnerHTML={{ __html: marked(cmt.text) }}
+                                    dangerouslySetInnerHTML={{ __html: marked(cmt.comment) }}
                                 />
                             </div>
                         </div>

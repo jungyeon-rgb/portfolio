@@ -1,12 +1,12 @@
 "use client"
 import { useSession } from "next-auth/react"
-import AuthButtons from "./components/AuthButtons"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import axiosInstance from "../api/axiosInstance"
+import MenuButton from "../_components/MenuButton"
+import MenuList from "../_components/MenuList"
+import CommentList from "../_components/GuestBook/CommentList"
 import Image from "next/image"
 import { marked } from "marked"
-import CommentList from "./components/CommentList"
-import MenuList from "../_components/MenuList"
-import MenuButton from "../_components/MenuButton"
 
 const GuestBook = () => {
     const { data: session } = useSession()
@@ -15,29 +15,58 @@ const GuestBook = () => {
     const [activeTab, setActiveTab] = useState("write")
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+    useEffect(() => {
+        fetchComments()
+    }, [])
+
+    const fetchComments = async () => {
+        try {
+            const response = await axiosInstance.get("/comments")
+            setCommentsList(response.data)
+            console.log("댓글리스트 응답", response.data)
+        } catch (error) {
+            console.error("Error fetching comments:", error)
+        }
+    }
+
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
     }
 
     const handleCommentChange = (e) => setComment(e.target.value)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log("handleSubmit called") // 디버깅용 로그
         if (comment.trim()) {
-            setCommentsList([
-                ...commentsList,
-                {
-                    text: comment,
-                    user: session?.user || {
-                        email: "Anonymous",
-                        image: "/path/to/default/image.png",
-                        name: "Anonymous",
+            const newComment = {
+                email: session?.user.email || "Anonymous",
+                name: session?.user.name || "Anonymous",
+                comment: comment,
+            }
+
+            try {
+                console.log("Sending POST request with:", newComment) // 디버깅용 로그
+                const response = await axiosInstance.post("/comments", newComment)
+                console.log("Response:", response) // 디버깅용 로그
+
+                setCommentsList([
+                    ...commentsList,
+                    {
+                        ...newComment,
+                        created_at: new Date().toISOString(),
+                        user: session?.user || {
+                            email: "Anonymous",
+                            image: session?.user.image || "/path/to/default/image.png",
+                            name: "Anonymous",
+                        },
                     },
-                    created_at: new Date().toISOString(),
-                },
-            ])
-            setComment("")
-            setActiveTab("write")
+                ])
+                setComment("")
+                setActiveTab("write")
+            } catch (error) {
+                console.error("Error posting comment:", error)
+            }
         }
     }
 
@@ -55,7 +84,7 @@ const GuestBook = () => {
             <div className="w-3/4 max-w-2xl p-4 mx-auto rounded-lg shadow-lg">
                 <MenuButton onClick={toggleMenu} />
 
-                <div className="flex mt-6 mb-4 ">
+                <div className="flex mt-6 mb-4">
                     <div className="flex justify-center">
                         {session && (
                             <Image
@@ -96,7 +125,22 @@ const GuestBook = () => {
                                 />
                                 <div className="flex items-center justify-between my-4">
                                     <span className="text-sm text-gray-500">Styling with Markdown is supported</span>
-                                    <AuthButtons handleCommentSubmit={handleSubmit} />
+                                    {session ? (
+                                        <button
+                                            type="submit"
+                                            className="w-[150px] h-[40px] px-4 py-2 leading-5 text-white bg-green-500 rounded-md hover:bg-green-600"
+                                        >
+                                            Comment
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() => signIn("github")}
+                                            className="leading-5 rounded-md hover:bg-green-600 text-white bg-green-500 flex items-center justify-center w-[200px] h-[40px] px-4 py-2"
+                                        >
+                                            <Image src="/images/github.svg" width={20} height={20} alt="githubicon" />
+                                            Sign in with GitHub
+                                        </button>
+                                    )}
                                 </div>
                             </form>
                         )}
@@ -108,7 +152,22 @@ const GuestBook = () => {
                                 />
                                 <div className="flex items-center justify-between my-4">
                                     <span className="text-sm text-gray-500">Styling with Markdown is supported</span>
-                                    <AuthButtons handleCommentSubmit={handleSubmit} />
+                                    {session ? (
+                                        <button
+                                            type="submit"
+                                            className="w-[150px] h-[40px] px-4 py-2 leading-5 text-white bg-green-500 rounded-md hover:bg-green-600"
+                                        >
+                                            Comment
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() => signIn("github")}
+                                            className="leading-5 rounded-md hover:bg-green-600 text-white bg-green-500 flex items-center justify-center w-[200px] h-[40px] px-4 py-2"
+                                        >
+                                            <Image src="/images/github.svg" width={20} height={20} alt="githubicon" />
+                                            Sign in with GitHub
+                                        </button>
+                                    )}
                                 </div>
                             </form>
                         )}
