@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const CommentList = ({ commentsList }) => {
   return (
     <section>
@@ -6,10 +8,19 @@ const CommentList = ({ commentsList }) => {
           {commentsList.map((cmt, index) => (
             <div
               key={index}
-              className="flex flex-col justify-center p-2 border-b border-gray-300"
+              className="flex items-start p-4 border-b border-gray-300"
             >
-              <p className="font-bold">{cmt.name}</p>
-              <p>{cmt.comment}</p>
+              <Image
+                src={cmt.image || "/default-profile.png"}
+                width={40}
+                height={40}
+                alt="프로필 이미지"
+                className="rounded-xl mr-4"
+              />
+              <div>
+                <p className="font-bold">{cmt.name}</p>
+                <p>{cmt.comment}</p>
+              </div>
             </div>
           ))}
         </div>

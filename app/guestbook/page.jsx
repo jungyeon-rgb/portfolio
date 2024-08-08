@@ -37,7 +37,7 @@ const GuestBook = () => {
       const queryParams = new URLSearchParams(pageable).toString();
 
       const response = await axiosInstance.get(`/comments?${queryParams}`);
-      setCommentsList(response.data.commentList || []); // 응답 데이터 구조에 맞게 조정
+      setCommentsList(response.data.commentList || []);
       console.log("댓글리스트 응답", response.data);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -57,6 +57,7 @@ const GuestBook = () => {
         email: session.user.email,
         name: session.user.name,
         comment: comment,
+        image: session.user.image,
       };
 
       try {
@@ -87,20 +88,22 @@ const GuestBook = () => {
         autoPlay
         muted
       />
-      <h1 className="my-4 text-white text-9xl font-stardom">GUEST BOOK</h1>
+      <h1 className="mt-12 mb-4 text-white text-9xl sm:text-8xl md:text-7xl lg:text-6xl xl:text-5xl font-stardom">
+        GUEST BOOK
+      </h1>
 
-      <div className="w-3/4 max-w-2xl p-4 mx-auto rounded-lg shadow-lg bg-white">
+      <div className="w-3/4 max-w-2xl p-4 mx-auto rounded-lg shadow-lg">
         <MenuButton onClick={toggleMenu} />
 
-        <div className="flex flex-col items-center mt-6 mb-4">
-          <div className="flex justify-center mb-4">
+        <div className="flex items-start mt-6 mb-4">
+          <div className="flex-shrink-0 mr-4">
             {session && (
               <Image
                 src={session.user.image}
                 alt="Profile"
                 width={40}
                 height={40}
-                className="w-10 h-10 mr-2 rounded-xl"
+                className="rounded-xl"
               />
             )}
           </div>
@@ -179,7 +182,7 @@ const GuestBook = () => {
           </div>
         </div>
 
-        <div className="max-h-[350px] overflow-y-auto text-black">
+        <div className="max-h-[300px] overflow-y-auto text-black">
           <CommentList commentsList={commentsList} />
         </div>
       </div>
