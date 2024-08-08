@@ -36,3 +36,6 @@ logging:
             sql: trace
       springframework:
         security: debug
+
+comment:
+  pwd: ${DEL_PWD}

@@ -10,6 +10,9 @@ import lombok.ToString;
 @ToString
 public class CommentInfo {
 
+	@Schema(description = "방명록id")
+	private Integer id;
+
 	@Schema(description = "이메일")
 	private String email;
 
