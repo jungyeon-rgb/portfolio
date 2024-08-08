@@ -33,6 +33,9 @@ public class Comment extends AuditBaseEntity {
 	@Column(name = "name")
 	private String name;
 
+	@Column(name = "image")
+	private String image;
+
 	@Column(name = "comment")
 	private String comment;
 }

@@ -27,6 +27,7 @@ public class CommentService {
 		Comment comment = commentRepository.save(Comment.builder()
 			.email(commentRequestDto.getEmail())
 			.name(commentRequestDto.getName())
+			.image(commentRequestDto.getImage())
 			.comment(commentRequestDto.getComment())
 			.build());
 
@@ -44,6 +45,7 @@ public class CommentService {
 			.map(c -> CommentInfo.builder()
 				.email(c.getEmail())
 				.name(c.getName())
+				.image(c.getImage())
 				.comment(c.getComment())
 				.build())
 			.toList();

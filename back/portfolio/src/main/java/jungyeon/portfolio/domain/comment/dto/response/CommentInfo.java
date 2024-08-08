@@ -16,6 +16,9 @@ public class CommentInfo {
 	@Schema(description = "이름")
 	private String name;
 
+	@Schema(description = "프로필 이미지")
+	private String image;
+
 	@Schema(description = "방명록 내용")
 	private String comment;
 }
