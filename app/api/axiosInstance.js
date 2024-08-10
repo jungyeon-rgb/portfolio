@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://43.200.112.139:8080/api",
+  baseURL: "https://43.200.112.139.nip.io/api",
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*", // 모든 도메인 허용
