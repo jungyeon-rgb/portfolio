@@ -1,59 +1,67 @@
-"use client"
-import { useState, useRef } from "react"
-import SwiperCustom from "../_components/Projects/SwiperCustom"
-import MenuList from "../_components/MenuList"
-import MenuButton from "../_components/MenuButton"
+"use client";
+import { useState, useRef } from "react";
+import SwiperCustom from "../_components/Projects/SwiperCustom";
+import MenuList from "../_components/MenuList";
+import MenuButton from "../_components/MenuButton";
+import projectList from "@/app/data/projectList";
 
 const Projects = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const swiperRef = useRef()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentTitle, setCurrentTitle] = useState(projectList[0].title);
+  const [currentTitleId, setCurrentTitleid] = useState(projectList[0].id);
+  const swiperRef = useRef();
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen)
-    }
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-    const nextSlide = () => {
-        if (swiperRef.current) {
-            swiperRef.current.nextSlide()
-        }
-    }
+  const handleSlideChange = (index) => {
+    setCurrentTitle(projectList[index].title); // 프로젝트 제목 업데이트
+    setCurrentTitleid(projectList[index].id);
+  };
 
-    const previousSlide = () => {
-        if (swiperRef.current) {
-            swiperRef.current.previousSlide()
-        }
-    }
+  return (
+    <main className="flex flex-col justify-center w-screen h-full font-medium font-pretendard">
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+        src="/video/background5.mp4"
+        loop
+        autoPlay
+        muted
+        aria-hidden="true"
+      />
+      <h1 className="mb-6 text-white mx-auto font-stardom text-center">
+        <div className="flex">
+          <span className="text-4xl mr-4 mt-4">(0{currentTitleId})</span>
+          <span className="block text-8xl">Projects</span>
+        </div>
+        <span className="text-6xl mt-4">: {currentTitle}</span>
+      </h1>
+      <MenuButton onClick={toggleMenu} />
+      <section className="w-full p-4 mx-auto bg-white bg-opacity-70 font-pretendard">
+        <div className="flex-row">
+          <div className="flex items-center justify-center text-black">
+            <SwiperCustom ref={swiperRef} onSlideChange={handleSlideChange} />
+          </div>
+          <div className="flex justify-end mx-4 text-black">
+            <button
+              onClick={() => swiperRef.current.previousSlide()}
+              className="mx-2 btn-primary"
+            >
+              이전
+            </button>
+            <button
+              onClick={() => swiperRef.current.nextSlide()}
+              className="mx-2 btn-primary"
+            >
+              다음
+            </button>
+          </div>
+        </div>
+        <MenuList isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      </section>
+    </main>
+  );
+};
 
-    return (
-        <main className="flex flex-col items-center justify-center w-screen h-full font-medium font-pretendard">
-            <video
-                className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
-                src="/video/background5.mp4"
-                loop
-                autoPlay
-                muted
-                aria-hidden="true"
-            />
-            <h1 className="pt-4 pb-6 text-white text-9xl font-stardom">Projects</h1>
-            <MenuButton onClick={toggleMenu} />
-            <section className="w-2/3 p-4 mx-auto border-2 border-white border-solid rounded-lg shadow-lg font-pretendard">
-                <div className="flex-row m-4">
-                    <div className="flex items-center justify-center">
-                        <SwiperCustom ref={swiperRef} onNext={nextSlide} onPrevious={previousSlide} />
-                    </div>
-                    <div className="flex justify-end mt-4">
-                        <button onClick={previousSlide} className="mx-2 text-white ">
-                            이전
-                        </button>
-                        <button onClick={nextSlide} className="mx-2 text-white ">
-                            다음
-                        </button>
-                    </div>
-                </div>
-                <MenuList isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-            </section>
-        </main>
-    )
-}
-
-export default Projects
+export default Projects;
