@@ -1,9 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 
 const MenuList = ({ isOpen, setIsMenuOpen }) => {
+  const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      gsap.to(closeButtonRef.current, {
+        rotation: 360,
+        opacity: 1,
+        duration: 1.5,
+        ease: "power3.inOut",
+      });
+    } else {
+      gsap.to(closeButtonRef.current, {
+        rotation: 0,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power3.inOut",
+      });
+    }
+  }, [isOpen]);
+
   const closeMenu = () => {
-    setIsMenuOpen(false);
+    gsap.to(closeButtonRef.current, {
+      rotation: -360,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power3.inOut",
+      onComplete: () => setIsMenuOpen(false), // 애니메이션 완료 후 메뉴 닫기
+    });
   };
 
   return (
@@ -40,7 +68,8 @@ const MenuList = ({ isOpen, setIsMenuOpen }) => {
           </Link>
         </li>
         <button
-          className="font-pretendard z-20 text-2xl absolute flex justify-center items-center bg-white text-backgroundColor_pink w-12 h-12 rounded-full bottom-[50px] left-1/2 transform -translate-x-1/2 cursor-pointer"
+          ref={closeButtonRef}
+          className="font-pretendard z-20 text-2xl absolute flex justify-center items-center bg-white text-[#C0A8BF] w-12 h-12 rounded-full bottom-[50px] left-1/2 transform -translate-x-1/2 cursor-pointer"
           onClick={closeMenu}
         >
           X
