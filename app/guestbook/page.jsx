@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession, signIn } from "next-auth/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import axiosInstance from "../api/axiosInstance";
 import MenuButton from "../_components/MenuButton";
@@ -21,6 +21,8 @@ const GuestBook = () => {
   const [commentsList, setCommentsList] = useState([]);
   const [activeTab, setActiveTab] = useState("write");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const textAreaRef = useRef(null);
+  const previewRef = useRef(null);
 
   useEffect(() => {
     fetchComments();
@@ -38,7 +40,6 @@ const GuestBook = () => {
 
       const response = await axiosInstance.get(`/comments?${queryParams}`);
       setCommentsList(response.data.commentList || []);
-      console.log("댓글리스트 응답", response.data);
     } catch (error) {
       console.error("Error fetching comments:", error);
     }
@@ -64,12 +65,12 @@ const GuestBook = () => {
         const response = await axiosInstance.post("/comments", newComment);
 
         setCommentsList([
-          ...commentsList,
           {
             ...newComment,
             createdAt: new Date().toISOString(),
             user: session.user,
           },
+          ...commentsList,
         ]);
         setComment("");
         setActiveTab("write");
@@ -78,6 +79,13 @@ const GuestBook = () => {
       }
     }
   };
+
+  useEffect(() => {
+    // 두 영역의 높이를 동기화
+    if (textAreaRef.current && previewRef.current) {
+      previewRef.current.style.height = `${textAreaRef.current.clientHeight}px`;
+    }
+  }, [comment]);
 
   return (
     <section className="flex flex-col items-center justify-center w-screen h-full font-medium font-pretendard">
@@ -131,13 +139,14 @@ const GuestBook = () => {
             <div className="w-full p-3 bg-white rounded-b-md focus:outline-none focus:ring-2 focus:ring-blue-400">
               {activeTab === "write" && (
                 <textarea
+                  ref={textAreaRef}
                   value={comment}
                   onChange={handleCommentChange}
                   className="text-black w-full h-32 p-3 resize-none focus:rounded-md focus:outline-none focus:ring-2 rounded-b-md focus:ring-blue-400"
                 />
               )}
               {activeTab === "preview" && (
-                <div className="markdown-preview">
+                <div ref={previewRef} className="markdown-preview">
                   <MDPreview
                     source={comment}
                     className="prose h-36 font-pretendard p-3"
