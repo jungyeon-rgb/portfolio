@@ -13,6 +13,7 @@
         "@uiw/react-md-editor": "^4.0.4",
         "axios": "^1.7.3",
         "date-fns": "^3.6.0",
+        "framer-motion": "^11.3.24",
         "gray-matter": "^4.0.3",
         "gsap": "^3.12.5",
         "lil-gui": "^0.19.2",

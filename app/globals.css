@@ -3,104 +3,190 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Pretendard Font */
 @font-face {
-    font-family: "Pretendard";
-    src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Pretendard";
+  src: url("/fonts/pretendard/Pretendard-Thin.woff2") format("woff2"),
+    url("/fonts/pretendard/Pretendard-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Stardom-Regular";
-    src: url("/fonts/stardom/Stardom-Regular.woff2") format("woff2"),
-        url("/fonts/stardom/Stardom-Regular.woff") format("woff"),
-        url("/fonts/stardom/Stardom-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-display: swap;
-    font-style: normal;
+  font-family: "Pretendard";
+  src: url("/fonts/pretendard/Pretendard-ExtraLight.woff2") format("woff2"),
+    url("/fonts/pretendard/Pretendard-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Cooper-Black-Regular";
-    src: url("/fonts/COOPBL.woff") format("woff");
-    font-style: normal;
-    font-weight: normal;
+  font-family: "Pretendard";
+  src: url("/fonts/pretendard/Pretendard-Light.woff2") format("woff2"),
+    url("/fonts/pretendard/Pretendard-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Cafe24Meongi-W-v1.0";
-    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Meongi-W-v1.0.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Pretendard";
+  src: url("/fonts/pretendard/Pretendard-Regular.woff2") format("woff2"),
+    url("/fonts/pretendard/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/pretendard/Pretendard-Medium.woff2") format("woff2"),
+    url("/fonts/pretendard/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/pretendard/Pretendard-SemiBold.woff2") format("woff2"),
+    url("/fonts/pretendard/Pretendard-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/pretendard/Pretendard-Bold.woff2") format("woff2"),
+    url("/fonts/pretendard/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/pretendard/Pretendard-ExtraBold.woff2") format("woff2"),
+    url("/fonts/pretendard/Pretendard-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/pretendard/Pretendard-Black.woff2") format("woff2"),
+    url("/fonts/pretendard/Pretendard-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Other Fonts */
+@font-face {
+  font-family: "Stardom-Regular";
+  src: url("/fonts/stardom/Stardom-Regular.woff2") format("woff2"),
+    url("/fonts/stardom/Stardom-Regular.woff") format("woff"),
+    url("/fonts/stardom/Stardom-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cooper-Black-Regular";
+  src: url("/fonts/COOPBL.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Cafe24Meongi-W-v1.0";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Meongi-W-v1.0.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "KimjungchulMyungjo-700";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "KimjungchulMyungjo-400";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "KimjungchulMyungjo-300";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HSSanTokki20";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405@1.0/HSSanTokki20-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Body Styles */
 body {
-    font-family: "Pretendard", "Stardom-Regular";
-    background-color: #7297b2;
-    color: white;
+  font-family: "Pretendard", "Stardom-Regular", sans-serif;
+  background-color: #7297b2;
+  color: white;
 }
 
+/* Circle Text Animation */
 .circle-text {
-    animation: rotate 10s linear infinite;
+  animation: rotate 10s linear infinite;
 }
 
+/* Marquee Animation */
 .marquee {
-    /* position: absolute; */
-    white-space: nowrap;
-    will-change: transform;
-    animation: marquee 32s linear infinite;
-    animation-duration: 32s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    animation-play-state: running;
-    animation-name: marquee;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 32s linear infinite linear;
 }
 
 @keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
-/* 스크롤바 커스텀 */
-/* width */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-    /* background: white; */
-    border-radius: 5px;
-    height: 5px;
+  border-radius: 5px;
+  height: 5px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-    background: grey;
-    border-radius: 5px;
+  background: grey;
+  border-radius: 5px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    /* background: white; */
-}
-
-/* 프로젝트 역할 줄띄움 기능 */
+/* Preformatted Text */
 .preformatted-text {
-    white-space: pre-line;
+  white-space: pre-line;
 }
