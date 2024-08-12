@@ -5,7 +5,7 @@ import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons";
 import { faBlog } from "@fortawesome/free-solid-svg-icons"; // Velog 대체 아이콘 (블로그)
 
 const ProjectDetails = ({ project }) => (
-  <div className="w-full h-full p-6 overflow-x-hidden overflow-y-auto text-gray-700">
+  <div className="w-full h-full p-6 overflow-x-hidden overflow-y-auto text-white">
     <div className="mb-4">
       <h3 className="text-xl font-black">프로젝트 목표 및 배경</h3>
       {/* description을 dangerouslySetInnerHTML로 렌더링 */}
@@ -50,7 +50,7 @@ const ProjectDetails = ({ project }) => (
           href={project.relatedLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500"
+          className=""
         >
           {project.relatedLink}
         </a>
@@ -64,7 +64,7 @@ const ProjectDetails = ({ project }) => (
           href={project.deploymentLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500"
+          className=""
         >
           {project.deploymentLink}
         </a>

@@ -41,10 +41,10 @@ const Projects = () => {
       {/* <section className="w-full p-4 mx-auto bg-white bg-opacity-70 font-pretendard"> */}
       <section className="w-full p-4 mx-auto font-pretendard">
         <div className="flex-row">
-          <div className="flex items-center justify-center text-black">
+          <div className="flex items-center justify-center text-white">
             <SwiperCustom ref={swiperRef} onSlideChange={handleSlideChange} />
           </div>
-          <div className="flex justify-end mx-4 text-black">
+          <div className="flex justify-end mx-4 text-white">
             <button
               onClick={() => swiperRef.current.previousSlide()}
               className="mx-2 btn-primary"

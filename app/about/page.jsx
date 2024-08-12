@@ -82,9 +82,7 @@ const About = () => {
           </div>
           <div className="mt-6">
             <h1 className="text-xl underline font-bold">INTERESTED IN</h1>
-            <div>
-              Arts, Graphic Design, Photography, Music, Fashion, Challenge
-            </div>
+            <div>Travel, Photography, Music, Fashion</div>
           </div>
           <div className="mt-6">
             <h1 className="text-xl underline font-bold">
