@@ -24,27 +24,33 @@ const Study = () => {
         <nav className="w-1/2 p-10 text-5xl">
           <ul className="pr-8">
             <section>
-              <h1 className="mt-10 mb-4 font-semibold">교육 {">"}</h1>
+              <h1 className="mt-10 mb-4 font-black">교육 {">"}</h1>{" "}
+              {/* 제목을 더 진하게 */}
               {studyListData.slice(0, 3).map((tab) => (
                 <li key={tab.name} className="py-2">
                   <button
-                    className={selectedTab === tab.name ? "font-bold" : ""}
+                    className={`${
+                      selectedTab === tab.name ? "font-black" : "font-semibold"
+                    }`}
                     onClick={() => handleTabClick(tab.name)}
                   >
                     {tab.name}
                     {selectedTab === tab.name && (
-                      <span className="ml-2 text-navy">*</span>
+                      <span className="text-navy">*</span>
                     )}
                   </button>
                 </li>
               ))}
             </section>
             <section>
-              <h1 className="mt-20 mb-4 font-black">기타 {">"}</h1>
-              {studyListData.slice(3, 5).map((tab) => (
+              <h1 className="mt-20 mb-4 font-black">기타 {">"}</h1>{" "}
+              {/* 소제목을 더 진하게 */}
+              {studyListData.slice(3, 6).map((tab) => (
                 <li key={tab.name} className="py-2">
                   <button
-                    className={selectedTab === tab.name ? "font-bold" : ""}
+                    className={`${
+                      selectedTab === tab.name ? "font-black" : "font-semibold"
+                    }`}
                     onClick={() => handleTabClick(tab.name)}
                   >
                     {tab.name}
@@ -64,7 +70,11 @@ const Study = () => {
             {studyListData.map(
               (tab) =>
                 selectedTab === tab.name && (
-                  <article key={tab.name} className="mx-10">
+                  <article
+                    key={tab.name}
+                    className="mx-10"
+                    style={{ wordWrap: "break-word" }} // 텍스트가 잘리지 않도록 처리
+                  >
                     <p>{tab.content}</p>
                   </article>
                 )

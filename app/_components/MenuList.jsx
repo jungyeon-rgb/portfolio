@@ -46,7 +46,7 @@ const MenuList = ({ isOpen, setIsMenuOpen }) => {
           { href: "/", label: "HOME" },
           { href: "/about", label: "ABOUT" },
           { href: "/projects", label: "PROJECTS" },
-          { href: "/study", label: "STUDY" },
+          { href: "/experience", label: "EXPERIENCE" },
           { href: "/guestbook", label: "GUEST BOOK" },
         ].map((item, index) => (
           <li key={index} className="px-4 py-4 transition-all ">

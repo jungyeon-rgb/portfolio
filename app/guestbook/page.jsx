@@ -32,7 +32,7 @@ const GuestBook = () => {
     try {
       const pageable = {
         page: 0,
-        size: 10,
+        size: 50,
         sort: "",
       };
 
