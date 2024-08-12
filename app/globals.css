@@ -190,3 +190,13 @@ body {
 .preformatted-text {
   white-space: pre-line;
 }
+
+.markdown-preview {
+  background-color: white;
+  color: black;
+}
+
+.markdown-preview * {
+  background-color: white !important;
+  color: black !important;
+}
