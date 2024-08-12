@@ -34,8 +34,8 @@ const CommentList = ({ commentsList }) => {
                       : "Date unknown"}
                   </p>
                 </div>
-                <div className="p-4 markdown-preview">
-                  <MDPreview source={cmt.comment} />
+                <div className="p-4 markdown-preview rounded-lg">
+                  <MDPreview source={cmt.comment} className="mx-2" />
                 </div>
               </div>
             </div>

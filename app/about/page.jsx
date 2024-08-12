@@ -54,13 +54,13 @@ const About = () => {
           </div>
 
           <Image
-            src={"/images/about/profile.jpg"}
+            src={"/images/about/profile_image.jpg"}
             width={225}
             height={300}
             alt="profile image"
             className="mt-4 object-cover"
           />
-          <ul className="mt-4 ">
+          <ul className="mt-4">
             <li>+82 010-2982-1241</li>
             <li>jy.keem2468@gmail.com</li>
             <li>
@@ -81,9 +81,38 @@ const About = () => {
               Arts, Graphic Design, Photography, Music, Fashion, Challenge
             </div>
           </div>
+          <div className="mt-6">
+            <h1 className="text-xl underline font-bold mb-2">QR Code</h1>
+            <div className="flex">
+              <div className="">
+                <p className="">GitHub</p>
+                <Image
+                  src={"/images/GitHub_qr.svg"}
+                  alt="GitHub_qr"
+                  width={100}
+                  height={100}
+                  className="mr-4"
+                />
+              </div>
+              <div>
+                <p>Velog</p>
+                <Image
+                  src={"/images/velog_qr.svg"}
+                  alt="velog_qr"
+                  width={100}
+                  height={100}
+                />
+              </div>
+            </div>
+          </div>
         </section>
         <section className="w-full md:w-2/5 lg:w-3/5 h-[300px] md:h-[400px] lg:h-[500px] overflow-y-auto">
-          <h1 className="text-xl underline font-bold mb-4">SOFTWARES</h1>
+          <div className="flex">
+            <h1 className="text-xl underline font-bold mb-4">SOFTWARES</h1>
+            <span className="ml-4">
+              (마우스를 올리시면 관련 설명이 표시됩니다.)
+            </span>
+          </div>
           <div className="space-y-6">
             {aboutData.map((software, index) => (
               <div
@@ -111,9 +140,17 @@ const About = () => {
                       maxHeight: "500px", // 툴팁 최대 높이 설정
                       overflowY: "auto", // 툴팁 내용이 길 경우 스크롤 사용
                       overflowWrap: "break-word",
+                      whiteSpace: "pre-wrap", // 줄 바꿈을 지원하도록 설정
                     }}
                   >
-                    <p className="text-sm">{software.content}</p>
+                    {software.content
+                      .trim()
+                      .split(".")
+                      .map((sentence, i) => (
+                        <p key={i} className="text-sm mb-2">
+                          {sentence.trim()}.
+                        </p>
+                      ))}
                   </div>
                 )}
               </div>

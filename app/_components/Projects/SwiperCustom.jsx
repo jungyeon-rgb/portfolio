@@ -45,33 +45,33 @@ const SwiperCustom = forwardRef((props, ref) => {
             key={project.id}
             className="flex justify-between items-start flex-shrink-0 w-full h-[550px] mb-12"
           >
-            <div className="relative flex w-3/5 h-full m-auto overflow-hidden">
-              <div className="w-full p-4">
+            <div className="relative flex w-3/5 h-full m-auto overflow-hidden items-center justify-center">
+              <div className="w-full px-4 mt-4 flex items-center justify-center">
                 <Image
-                  src={project.imageSrc}
+                  src={project.imageSrc_1}
                   alt={project.title}
                   width={500}
                   height={300}
-                  objectFit="cover"
-                  className="rounded-[50px] w-full h-full object-cover mb-4"
+                  objectFit="contain"
+                  className="rounded-xl w-full h-full"
                 />
               </div>
               <div className="w-full flex flex-col justify-between p-4">
                 <Image
-                  src="/images/effective_typescript.jpg"
+                  src={project.imageSrc_2}
                   alt={project.title}
                   width={500}
                   height={150}
                   objectFit="cover"
-                  className="rounded-[50px] w-full h-1/2 object-cover mb-4"
+                  className="rounded-xl w-full h-1/2 object-cover mb-4"
                 />
                 <Image
-                  src="/images/effective_typescript.jpg"
+                  src={project.imageSrc_3}
                   alt={project.title}
                   width={500}
                   height={150}
                   objectFit="cover"
-                  className="rounded-[50px] w-full h-1/2 object-cover"
+                  className="rounded-xl w-full h-1/2 object-cover"
                 />
               </div>
             </div>
