@@ -8,33 +8,19 @@ const studyListData = [
     title: "서울시 뉴딜",
     content: (
       <div>
-        <p className="text-2xl my-4 font-bold">이용안내</p>
+        <p className="text-2xl my-4 font-bold">서울시 뉴딜 풀스택 어쩌구</p>
         <div className="text-xl">
-          <p className="py-4">
-            체크인은 오후 3시 이며, 체크아웃은 다음날 오전 11시로 안내해
-            드립니다.
-          </p>
-          <p className="pb-4">
-            숙박 정원은 최대 4인(성인 4명, 영유아 2명)까지이며, 4인 이상의 추가
-            인원은 영유아에 한하여 가능합니다.
-          </p>
+          <p className="py-4">기간 :</p>
+          <p className="pb-4">수업 내용 :</p>
           <p className="pb-4">
             안전을 위해 외부 입구에 CCTV가 설치되어 있습니다.
           </p>
-          <p className="pb-4">
-            예약된 인원 외의 추가 인원 출입 시 이유 불문 강제 퇴실 조치가
-            이루어집니다.
-          </p>
-          <p className="pb-4">
-            반려동물 동반은 입실이 불가능한 점 양해 부탁드립니다.
-          </p>
-          {/* 나머지 내용들 추가 */}
         </div>
       </div>
     ),
     images: [], // 필요시 이미지 경로 추가
     velog: "", // 관련 Velog 링크
-    github: "", // 관련 GitHub 링크
+    github: "https://github.com/jungyeon-rgb/portfolio", // 관련 GitHub 링크
   },
   {
     name: "엘리스",
@@ -192,6 +178,35 @@ const studyListData = [
               <li>
                 부산시청의 개방데이터 목록을 확인하고 이를 공공데이터 포털에
                 반영
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    ),
+    images: [], // 필요시 이미지 경로 추가
+    velog: "", // 관련 Velog 링크
+    github: "", // 관련 GitHub 링크
+  },
+  {
+    name: "동아대학교",
+    title: "동아대학교",
+    content: (
+      <section>
+        <h2 className="text-2xl font-bold mb-4">부산시청</h2>
+        <ul className="list-disc list-inside text-lg">
+          <li>
+            <strong>기간:</strong> 2016. 03 ~ 2020. 02
+          </li>
+          <li>
+            <strong>역할:</strong> 전자공학과
+          </li>
+          <li>
+            <strong>주요 업무:</strong>
+            <ul className="mt-2 list-disc list-inside pl-6">
+              <li>
+                캡스톤 디자인 주제 : Arduino를 활용한 &apos;로드셀 센서를 이용한
+                지하철 혼잡도 측정&lsquo;
               </li>
             </ul>
           </li>

@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import SwiperCustom from "../_components/Projects/SwiperCustom";
 import MenuList from "../_components/MenuList";
 import MenuButton from "../_components/MenuButton";
-import projectList from "@/app/data/projectList";
+import projectList from "../data/projectList";
 
 const Projects = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,16 +21,16 @@ const Projects = () => {
   };
 
   return (
-    <main className="flex flex-col justify-center w-screen h-full font-medium font-pretendard">
-      <video
+    <main className=" flex flex-col justify-center w-screen h-full font-medium font-pretendard">
+      {/* <video
         className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
         src="/video/background5.mp4"
         loop
         autoPlay
         muted
         aria-hidden="true"
-      />
-      <h1 className="mb-6 text-white mx-auto font-stardom text-center">
+      /> */}
+      <h1 className="my-6 text-white mx-auto font-stardom text-center">
         <div className="flex">
           <span className="text-4xl mr-4 mt-4">(0{currentTitleId})</span>
           <span className="block text-8xl">Projects</span>
@@ -38,7 +38,8 @@ const Projects = () => {
         <span className="text-6xl mt-4">: {currentTitle}</span>
       </h1>
       <MenuButton onClick={toggleMenu} />
-      <section className="w-full p-4 mx-auto bg-white bg-opacity-70 font-pretendard">
+      {/* <section className="w-full p-4 mx-auto bg-white bg-opacity-70 font-pretendard"> */}
+      <section className="w-full p-4 mx-auto font-pretendard">
         <div className="flex-row">
           <div className="flex items-center justify-center text-black">
             <SwiperCustom ref={swiperRef} onSlideChange={handleSlideChange} />
