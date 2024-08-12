@@ -38,22 +38,22 @@ const SwiperCustom = forwardRef((props, ref) => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden mx-40">
+    <div className="relative w-full overflow-hidden mx-40 ">
       <div className="flex" ref={slideRef}>
         {projectList.map((project) => (
           <div
             key={project.id}
-            className="flex justify-between items-start flex-shrink-0 w-full h-[550px] mb-12"
+            className="flex justify-between items-start flex-shrink-0 w-full h-[550px] mb-12 "
           >
             <div className="relative flex w-3/5 h-full m-auto overflow-hidden items-center justify-center">
-              <div className="w-full px-4 mt-4 flex items-center justify-center">
+              <div className="w-full">
                 <Image
                   src={project.imageSrc_1}
                   alt={project.title}
                   width={500}
                   height={300}
                   objectFit="contain"
-                  className="rounded-xl w-full h-full"
+                  className="rounded-xl mt-16 object-cover"
                 />
               </div>
               <div className="w-full flex flex-col justify-between p-4">
@@ -75,7 +75,7 @@ const SwiperCustom = forwardRef((props, ref) => {
                 />
               </div>
             </div>
-            <div className="w-2/5 h-full overflow-y-auto">
+            <div className="w-2/5 h-full overflow-y-auto ">
               <ProjectDetails project={project} />
             </div>
           </div>
