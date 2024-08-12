@@ -1,5 +1,7 @@
 package jungyeon.portfolio.domain.comment.dto.response;
 
+import java.time.LocalDateTime;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,4 +26,7 @@ public class CommentInfo {
 
 	@Schema(description = "방명록 내용")
 	private String comment;
+
+	@Schema(description = "등록날짜")
+	private LocalDateTime createdAt;
 }

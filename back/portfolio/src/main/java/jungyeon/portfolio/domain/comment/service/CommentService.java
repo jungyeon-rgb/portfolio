@@ -54,6 +54,7 @@ public class CommentService {
 				.name(c.getName())
 				.image(c.getImage())
 				.comment(c.getComment())
+				.createdAt(c.getCreatedAt())
 				.build())
 			.toList();
 
