@@ -68,6 +68,11 @@ const About = () => {
                 https://github.com/jungyeon-rgb
               </Link>
             </li>
+            <li>
+              <Link href="https://velog.io/@meek/posts">
+                https://velog.io/@meek/posts
+              </Link>
+            </li>
           </ul>
         </section>
         <section className="w-full md:w-2/5 lg:w-2/5 flex flex-col ml-12">
@@ -77,11 +82,15 @@ const About = () => {
           </div>
           <div className="mt-6">
             <h1 className="text-xl underline font-bold">INTERESTED IN</h1>
-            <div>
-              Arts, Graphic Design, Photography, Music, Fashion, Challenge
-            </div>
+            <div>Travel, Photography, Music, Fashion</div>
           </div>
           <div className="mt-6">
+            <h1 className="text-xl underline font-bold">
+              COMMUNICATION SKILLS
+            </h1>
+            <div>Notion, Figma, Swagger, Trello, Jira</div>
+          </div>
+          <div className="mt-8">
             <h1 className="text-xl underline font-bold mb-2">QR Code</h1>
             <div className="flex">
               <div className="">
