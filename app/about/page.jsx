@@ -54,7 +54,7 @@ const About = () => {
           </div>
 
           <Image
-            src={"/images/about/profile.jpg"}
+            src={"/images/about/profile_image.jpg"}
             width={225}
             height={300}
             alt="profile image"

@@ -182,7 +182,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: grey;
+  background: #b7bdbe;
   border-radius: 5px;
 }
 

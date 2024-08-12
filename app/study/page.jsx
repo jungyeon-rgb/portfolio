@@ -65,7 +65,7 @@ const Study = () => {
               (tab) =>
                 selectedTab === tab.name && (
                   <article key={tab.name} className="mx-10">
-                    {tab.content}
+                    <p>{tab.content}</p>
                   </article>
                 )
             )}
