@@ -21,7 +21,7 @@
 | 방명록 페이지 이미지 |
 
 -   Next.js와 Tailwind CSS를 사용한 반응형 웹사이트 구현
--   Next-Auth를 이용한 GitHub 로그인 및 인증 시스템 구축
+-   Next-Auth를 이용한 GitHub 로그인 및 인증 시스템 구축 및 [블로그 게시글 작성](https://velog.io/@meek/Next-Auth)
 -   SSR(Server-Side Rendering)을 사용해 성능 최적화
 -   GSAP을 활용한 다양한 애니메이션 효과 구현으로 사용자의 시각적 경험 향상
 -   CI/CD 파이프라인 구축을 통한 자동 배포 설정 (Vercel 사용)
