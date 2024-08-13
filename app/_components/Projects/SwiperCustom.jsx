@@ -38,41 +38,45 @@ const SwiperCustom = forwardRef((props, ref) => {
     }, [])
 
     return (
-        <div className="relative w-full mx-40 overflow-hidden ">
-            <div className="flex" ref={slideRef}>
+        <div className="w-full max-w-screen-xl overflow-hidden h-[calc(100vh-300px)]">
+            <div className="flex" ref={slideRef} style={{ height: "100%" }}>
                 {projectList.map((project) => (
                     <div
                         key={project.id}
-                        className="flex justify-between items-start flex-shrink-0 w-full h-[550px] mb-12 "
+                        className="flex items-center justify-between flex-shrink-0 w-full h-full mb-12"
                     >
-                        <div className="relative flex items-center justify-center w-3/5 h-full m-auto overflow-hidden">
+                        <div className="flex items-center justify-center w-3/5 h-full m-auto overflow-hidden">
                             <div className="w-full">
                                 <Image
                                     src={project.imageSrc_1}
                                     alt={project.title}
-                                    width={500}
-                                    height={300}
-                                    className="object-cover mt-16 rounded-xl"
+                                    width={1920}
+                                    height={1080}
+                                    className="object-cover rounded-xl"
                                 />
                             </div>
                             <div className="flex flex-col justify-between w-full p-4">
-                                <Image
-                                    src={project.imageSrc_2}
-                                    alt={project.title}
-                                    width={500}
-                                    height={150}
-                                    className="object-cover w-full mb-4 rounded-xl h-1/2"
-                                />
-                                <Image
-                                    src={project.imageSrc_3}
-                                    alt={project.title}
-                                    width={500}
-                                    height={150}
-                                    className="object-cover w-full rounded-xl h-1/2"
-                                />
+                                <div className="w-full mb-4">
+                                    <Image
+                                        src={project.imageSrc_2}
+                                        alt={project.title}
+                                        width={1920}
+                                        height={1080}
+                                        className="object-cover w-full rounded-xl"
+                                    />
+                                </div>
+                                <div className="w-full">
+                                    <Image
+                                        src={project.imageSrc_3}
+                                        alt={project.title}
+                                        width={1920}
+                                        height={1080}
+                                        className="object-cover w-full rounded-xl"
+                                    />
+                                </div>
                             </div>
                         </div>
-                        <div className="w-2/5 h-full overflow-y-auto ">
+                        <div className="w-2/5 h-full p-4 overflow-y-auto">
                             <ProjectDetails project={project} />
                         </div>
                     </div>
