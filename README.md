@@ -30,7 +30,7 @@
 ## 개발 환경
 
 -   Next.js, Tailwind, Next-auth, GSAP
--   버전 및 이슈관리 : Github, Github Issues, ![Swagger](http://43.200.112.139:8080/swagger-ui/index.html)
+-   버전 및 이슈관리 : Github, Github Issues, [Swagger](http://43.200.112.139:8080/swagger-ui/index.html)
 -   서비스 배포 환경 : vercel
 
 ## 브랜치 전략
