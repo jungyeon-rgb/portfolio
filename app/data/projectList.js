@@ -42,6 +42,7 @@ const projectList = [
         ],
         deploymentLink: "https://portpolio-gilt.vercel.app/",
         githubLink: "https://github.com/jungyeon-rgb/portfolio",
+        relatedLink: ["Swagger : ", "http://43.200.112.139:8080/swagger-ui/index.html"],
     },
     {
         id: 3,
