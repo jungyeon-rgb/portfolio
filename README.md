@@ -1,40 +1,40 @@
-# 배포주소
+# PORTFOLIO
 
-https://portpolio-mfyfdy7dj-jungyeonrgbs-projects.vercel.app/
+-   배포 URL : https://portpolio-gilt.vercel.app/
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 프로젝트 소개
 
-## Getting Started
+## 페이지 및 기능
 
-First, run the development server:
+| 메인 페이지 | 소개 페이지 |
+| ----------- | ----------- |
+| 메인 페이지 | 소개 페이지 |
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| 프로젝트 페이지        | 경험 페이지        |
+| ---------------------- | ------------------ |
+| 프로젝트 페이지 이미지 | 경험 페이지 이미지 |
+
+| 방명록 페이지        |
+| -------------------- |
+| 방명록 페이지 이미지 |
+
+## 개발 환경
+
+-   Next.js, Tailwind, Next-auth, GSAP
+-   버전 및 이슈관리 : Github, Github Issues
+-   서비스 배포 환경 : vercel
+
+## 브랜치 전략
+
+-   GitHub-Flow 전략을 기반으로 main, develop 브랜치와 feature 보조 브랜치를 운용했습니다.
+-   main, develop, Feat 브랜치로 나누어 개발을 하였습니다.
+    -   main 브랜치는 배포 단계에서만 사용하는 브랜치입니다.
+    -   develop 브랜치는 개발 단계에서 GitHub-flow의 master 역할을 하는 브랜치입니다.
+    -   Feat 브랜치는 기능 단위로 독립적인 개발 환경을 위하여 사용하고 merge 후 각 브랜치를 삭제해주었습니다.
+
+## 개발 시작
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+npm install
+npm run dev
+```
