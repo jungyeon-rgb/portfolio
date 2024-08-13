@@ -52,7 +52,6 @@ const SwiperCustom = forwardRef((props, ref) => {
                                     alt={project.title}
                                     width={500}
                                     height={300}
-                                    fill="contain"
                                     className="object-cover mt-16 rounded-xl"
                                 />
                             </div>
@@ -62,7 +61,6 @@ const SwiperCustom = forwardRef((props, ref) => {
                                     alt={project.title}
                                     width={500}
                                     height={150}
-                                    fill="cover"
                                     className="object-cover w-full mb-4 rounded-xl h-1/2"
                                 />
                                 <Image
@@ -70,7 +68,6 @@ const SwiperCustom = forwardRef((props, ref) => {
                                     alt={project.title}
                                     width={500}
                                     height={150}
-                                    fill="cover"
                                     className="object-cover w-full rounded-xl h-1/2"
                                 />
                             </div>
