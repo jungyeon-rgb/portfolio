@@ -15,7 +15,16 @@ const projectList = [
             "Admin - 신고, 유저, 에세이 페이지의 목록 페이지 및 상세 페이지, 정보 수정",
             "Web - 사이드바, 약관 페이지",
         ],
-        deploymentLink: "https://linkedout-umber.vercel.app/authentication/sign-in",
+        deploymentLink: [
+            `<strong>관리자 페이지</strong>`,
+            `<p>https://linkedout-umber.vercel.app/authentication/sign-in</p>`,
+            `<strong>약관페이지</strong>`,
+            `<p>https://www.linkedoutapp.com/terms</p>`,
+            `<p>https://www.linkedoutapp.com/privacy-policy</p>`,
+            `<p>https://www.linkedoutapp.com/location-terms</p>`,
+            `<p>https://www.linkedoutapp.com/operational-policy</p>`,
+        ],
+
         relatedLink: "https://velog.io/@meek/series/Linkedout",
         githubLink: "https://github.com/team-echoist/web-frontend",
         figmaLink:
@@ -31,7 +40,7 @@ const projectList = [
             "개인 포트폴리오 프로젝트로, 프론트엔드 개발자로서의 기술과 경험을 보여주기 위해 제작한 웹사이트입니다.",
         period: "2024.07 (3주)",
         teamMembers: "1명 (개인 프로젝트)",
-        technologies: "Next.js, Tailwind CSS, Next-Auth, GSAP, Three.js",
+        technologies: "Next.js, Tailwind CSS, Next-Auth, GSAP",
         role: [
             "Next.js와 Tailwind CSS를 사용한 반응형 웹사이트 구현",
             "Next-Auth를 이용한 GitHub 로그인 및 인증 시스템 구축",
@@ -42,6 +51,7 @@ const projectList = [
         ],
         deploymentLink: "https://portpolio-gilt.vercel.app/",
         githubLink: "https://github.com/jungyeon-rgb/portfolio",
+        relatedLink: ["Swagger : ", "http://43.200.112.139:8080/swagger-ui/index.html"],
     },
     {
         id: 3,
