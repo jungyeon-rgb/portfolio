@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 const MDPreview = dynamic(() => import("@uiw/react-markdown-preview"), {
   ssr: false,
+  loading: () => <p>Loading...</p>, // 로딩 시 표시될 컴포넌트
 });
 
 const CommentList = ({ commentsList }) => {
