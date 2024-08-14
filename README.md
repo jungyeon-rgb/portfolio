@@ -8,17 +8,17 @@
 
 ## 페이지 및 기능
 
-| 메인 페이지                                           | 소개 페이지                                            |
-| ----------------------------------------------------- | ------------------------------------------------------ |
-| ![메인 페이지](public/images/portfolio_mainpage.webp) | ![소개 페이지](public/images/portfolio_aboutpage.webp) |
+| 메인 페이지                                          | 소개 페이지                                           |
+| ---------------------------------------------------- | ----------------------------------------------------- |
+| ![메인 페이지](public/video/portfolio_mainpage.webp) | ![소개 페이지](public/video/portfolio_aboutpage.webp) |
 
-| 프로젝트 페이지                                              | 경험 페이지                                                 |
-| ------------------------------------------------------------ | ----------------------------------------------------------- |
-| ![프로젝트 페이지](public/images/portfolio_projectpage.webp) | ![경험 페이지](public/images/portfolio_experiencepage.webp) |
+| 프로젝트 페이지                                             | 경험 페이지                                                |
+| ----------------------------------------------------------- | ---------------------------------------------------------- |
+| ![프로젝트 페이지](public/video/portfolio_projectpage.webp) | ![경험 페이지](public/video/portfolio_experiencepage.webp) |
 
-| 방명록 페이지                                                |
-| ------------------------------------------------------------ |
-| ![방명록 페이지](public/images/portfolio_guestbookpage.webp) |
+| 방명록 페이지                                               |
+| ----------------------------------------------------------- |
+| ![방명록 페이지](public/video/portfolio_guestbookpage.webp) |
 
 - Next.js와 Tailwind CSS를 사용한 반응형 웹사이트 구현
 - Next-Auth를 이용한 GitHub 로그인 및 인증 시스템 구축 및 [블로그 게시글 작성](https://velog.io/@meek/Next-Auth)
