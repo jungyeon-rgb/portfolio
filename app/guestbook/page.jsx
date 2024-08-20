@@ -13,6 +13,7 @@ import "@uiw/react-markdown-preview/markdown.css";
 
 const MDPreview = dynamic(() => import("@uiw/react-markdown-preview"), {
   ssr: false,
+  loading: () => <p>Loading preview...</p>,
 });
 
 const GuestBook = () => {
@@ -113,6 +114,7 @@ const GuestBook = () => {
                 width={40}
                 height={40}
                 className="rounded-xl"
+                loading="lazy"
               />
             )}
           </div>
