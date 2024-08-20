@@ -77,7 +77,9 @@ const projectList = [
       "React-hook-form을 활용해 가게 생성 모달 구현",
       "재사용 가능한 공통 컴포넌트 개발",
     ],
-    deploymentLink: "https://komatzip.wo.tc",
+    deploymentLink: [
+      `<a href="https://komatzip.wo.tc" target="_blank">https://komatzip.wo.tc</a>`,
+    ],
     relatedLink: "https://trello.com/b/bbY24IJK/komatzip-kanban",
     githubLink: "https://github.com/to1step/komatzip-fe",
     figmaLink:
