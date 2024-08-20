@@ -95,6 +95,7 @@ const GuestBook = () => {
         loop
         autoPlay
         muted
+        loading="lazy"
       />
       <h1 className="mt-12 mb-4 text-white text-9xl sm:text-8xl md:text-7xl lg:text-6xl xl:text-5xl font-stardom">
         GUEST BOOK
@@ -179,7 +180,7 @@ const GuestBook = () => {
                   className="leading-5 rounded-md hover:bg-green-600 text-white bg-green-500 flex items-center justify-center w-[200px] h-[40px] px-4 py-2"
                 >
                   <Image
-                    src="/images/github.svg"
+                    src="/images/github.webp"
                     width={20}
                     height={20}
                     alt="githubicon"

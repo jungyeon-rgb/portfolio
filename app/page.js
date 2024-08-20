@@ -9,11 +9,12 @@ export default function Home() {
       <section>
         <video
           className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
-          src="/video/background2.mp4"
+          src={"/video/background2.mp4"}
           loop
           autoPlay
           muted
         />
+
         <div className="flex justify-center items-center w-full min-h-screen">
           <AnimatedText />
         </div>
