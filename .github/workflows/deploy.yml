@@ -9,9 +9,9 @@ name: CI/CD github Actions & Docker
 
 on:
   push:
-    branches: [ "feat/comment" ]
+    branches: [ "develop/be" ]
   pull_request:
-    branches: [ "feat/comment" ]
+    branches: [ "develop/be" ]
 
 permissions:
   contents: read
