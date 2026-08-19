@@ -16,7 +16,7 @@
         "@uiw/react-md-editor": "^4.0.4",
         "axios": "^1.7.3",
         "date-fns": "^3.6.0",
-        "framer-motion": "^11.3.24",
+        "framer-motion": "13.1.0",
         "gray-matter": "^4.0.3",
         "gsap": "^3.12.5",
         "lil-gui": "^0.19.2",
@@ -34,7 +34,7 @@
     },
     "devDependencies": {
         "autoprefixer": "^10",
-        "eslint": "10.8.1",
+        "eslint": "9.39.5",
         "eslint-config-next": "16.3.1",
         "postcss": "^8",
         "tailwind-scrollbar": "^3.1.0",
